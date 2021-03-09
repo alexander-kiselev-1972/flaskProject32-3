@@ -77,7 +77,7 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <a class="navbar-brand d-block d-lg-none" href="#"><img src="agency/images/logo.png" alt="logo"></a>
+                    <a class="navbar-brand d-block d-lg-none" href="#"><img src="{{ url_for('static', filename='agency/images/logo.png') }}" alt="logo"></a>
                 </div>
             </div>
         </div>
@@ -234,7 +234,7 @@
                          data-paddingleft="[0,0,0,0]"
 
                          style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;">
-                        Возьми свой дом везде с собой!
+                        <p>Возьми свой дом везде с собой!</p>
                     </div>
 
                     <!-- LAYER NR. 5 -->
@@ -253,7 +253,7 @@
                 <!-- SLIDE  -->
                 <li data-index="rs-15" data-transition="slideleft,slideright" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500,1500"  data-thumb="assets/50x50_72c0d-apartment-architecture-bookcase-bookshelves-271795.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="agency/images/slide2.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                    <img src="{{ url_for('static', filename='agency/images/slide2.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
 
                     <!-- LAYER NR. 6 -->
@@ -325,7 +325,7 @@
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
 
-                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;">Сможете добраться даже в самые трудные места.</div>
+                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;"><p>Сможете добраться даже в самые трудные места.</p></div>
 
                     <!-- LAYER NR. 10 -->
                     <!-- LAYER NR. 10 -->
@@ -350,7 +350,7 @@
                 <!-- SLIDE  -->
                 <li data-index="rs-14" data-transition="slideleft,slideright" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500,1500"  data-thumb="assets/50x50_0112a-flat-screen-tv-1571458.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
-                    <img src="agency/images/slide3.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+                    <img src="{{ url_for('static', filename='agency/images/slide3.jpg') }}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
                     <!-- LAYERS -->
 
                     <!-- LAYER NR. 11 -->
@@ -396,7 +396,7 @@
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
 
-                         style="z-index: 6; min-width: 242px; max-width: 282px; white-space: nowrap; font-size: 65px; line-height: 81px; font-weight: 700; color: #ffffff; letter-spacing:0;font-family:'Raleway',sans-serif;"><span class="slider-line-text">На</span> охоту</div>
+                         style="z-index: 6; min-width: 242px; max-width: 282px; white-space: nowrap; font-size: 65px; line-height: 81px; font-weight: 700; color: #ffffff; letter-spacing:0;font-family:'Raleway',sans-serif;"><span class="slider-line-text">На</span> <p>охоту</p></div>
 
                     <!-- LAYER NR. 14 -->
                     <div class="tp-caption   tp-resizeme"
@@ -419,7 +419,7 @@
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
 
-                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;">Комфортно при любой температуре!</div>
+                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;"><p>Комфортно при любой температуре!</p></div>
 
                     <!-- LAYER NR. 15 -->
                     <div class="tp-caption   tp-resizeme"
@@ -470,7 +470,7 @@
             <div class="col-12 col-lg-6 d-flex justify-content-center align-items-center">
                 <div class="about-img-holder">
                     <div class="behind-overlay"></div>
-                    <img src="agency/images/about-img.png" alt="">
+                    <img src="{{ url_for('static', filename='agency/images/about-img.png') }}" alt="">
                 </div>
             </div>
         </div>
@@ -525,18 +525,18 @@
                 </div>
                 <div class="col-md-12 pt-5">
                     <div id="js-filters-mosaic" class="cbp-l-filters-button wow fadeInUp" data-wow-delay="350ms">
-                        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"> Все</div>
-                        <div data-filter=".veles" class="cbp-filter-item">VELES</div>
-                        <div data-filter=".yenisei" class="cbp-filter-item">YENISEI</div>
-                        <div data-filter=".ural" class="cbp-filter-item">URAL</div>
-                        <div data-filter=".additions" class="cbp-filter-item">Дополнения</div>
+                        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"><p>Все</p></div>
+                        <div data-filter=".veles" class="cbp-filter-item"><p>VELES</p></div>
+                        <div data-filter=".yenisei" class="cbp-filter-item"><p>YENISEI</p></div>
+                        <div data-filter=".ural" class="cbp-filter-item"><p>URAL</p></div>
+                        <div data-filter=".additions" class="cbp-filter-item"><p>Дополнения</p></div>
                     </div>
 
                     <div id="js-grid-mosaic" class="cbp cbp-l-grid-mosaic">
                         <div class="cbp-item veles">
-                            <a href="agency/images/p1.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p1.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p1.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p1.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -548,9 +548,9 @@
                         </div>
 
                         <div class="cbp-item veles">
-                            <a href="agency/images/p2.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p2.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p2.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p2.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -562,9 +562,9 @@
                         </div>
 
                         <div class="cbp-item yenisei">
-                            <a href="agency/images/p3.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p3.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p3.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p3.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -576,9 +576,9 @@
                         </div>
 
                         <div class="cbp-item yenisei">
-                            <a href="agency/images/p4.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p4.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p4.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p4.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -590,9 +590,9 @@
                         </div>
 
                         <div class="cbp-item ural disp-none">
-                            <a href="agency/images/p5.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p5.jpg') }}" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p5.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p5.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -604,9 +604,9 @@
                         </div>
 
                         <div class="cbp-item veles disp-none">
-                            <a href="agency/images/p6.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p6.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p6.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p6.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -618,9 +618,9 @@
                         </div>
 
                         <div class="cbp-item additions disp-none">
-                            <a href="agency/images/hatch-fan.png" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/hatch-fan.png" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -632,9 +632,9 @@
                         </div>
 
                         <div class="cbp-item additions disp-none">
-                            <a href="agency/images/caravan-cover.png" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/caravan-cover.png" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -646,9 +646,9 @@
                         </div>
 
                         <div class="cbp-item veles disp-none">
-                            <a href="agency/images/p7.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p7.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p7.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p7.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -660,9 +660,9 @@
                         </div>
 
                         <div class="cbp-item veles disp-none">
-                            <a href="agency/images/p8.jpg" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
+                            <a href="{{ url_for('static', filename='agency/images/p8.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
-                                    <img src="agency/images/p8.jpg" alt="img">
+                                    <img src="{{ url_for('static', filename='agency/images/p8.jpg') }}" alt="img">
                                 </div>
                                 <div class="cbp-caption-activeWrap portfolio-hover-effect d-flex align-items-end">
                                     <div class="hover-text">
@@ -682,7 +682,7 @@
                                 <span class="p-text">Projects for Our amazing Clients</span>
                             </div>
                             <div class="col-6 col-lg-3  d-flex justify-content-end align-items-center">
-                                <a href="agency/images/p5.jpg" class="btn anim-btn rounded-pill cbp-caption cbp-lightbox">Смотреть все фото<span></span><span></span><span></span><span></span></a>
+                                <a href="{{ url_for('static', filename='agency/images/p5.jpg') }}" class="btn anim-btn rounded-pill cbp-caption cbp-lightbox">Смотреть все фото<span></span><span></span><span></span><span></span></a>
                             </div>
                         </div>
                     </div>
@@ -742,7 +742,7 @@
                     <div class="tab-pane fade show" id="p2" role="tabpanel" aria-labelledby="pills-2-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="agency/img/service2.png">
+                                <img alt="service1" src="{{ url_for('static', filename='agency/img/service2.png')}}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
@@ -760,7 +760,7 @@
                     <div class="tab-pane fade show" id="p3" role="tabpanel" aria-labelledby="pills-3-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="agency/img/service3.png">
+                                <img alt="service1" src="{{ url_for('static', filename='agency/img/service3.png') }}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
@@ -778,7 +778,7 @@
                     <div class="tab-pane fade show" id="p4" role="tabpanel" aria-labelledby="pills-4-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="agency/img/service4.jpg">
+                                <img alt="service1" src="{{ url_for('static', filename='agency/img/service4.jpg')}}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
@@ -852,7 +852,7 @@
                             <div class="test-info">
                                 <div class="media">
                                     <div class="client-img-holder mr-3">
-                                    <img src="agency/img/client.jpg" class="align-self-center" alt="image">
+                                    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">
                                     </div>
                                     <div class="client-info media-body">
                                         <h5 class="client-name mt-0">JOE MARTIN -</h5>
@@ -878,7 +878,7 @@
                             <div class="test-info">
                                 <div class="media">
                                     <div class="client-img-holder mr-3">
-                                    <img src="agency/img/client.jpg" class="align-self-center" alt="image">
+                                    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">
                                     </div>
                                     <div class="client-info media-body">
                                         <h5 class="client-name mt-0">ALICE JORDAN -</h5>
@@ -921,7 +921,7 @@
                         </div>
                         <div class="col-12 col-md-6 price-text">
                             <div class="price-img">
-                                <img src="agency/images/p3.jpg" alt="">
+                                <img src="{{ url_for('static', filename='agency/images/p3.jpg') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -959,7 +959,7 @@
                         </div>
                         <div class="col-12 col-md-6 price-text">
                             <div class="price-img">
-                                <img src="agency/images/p1.jpg" alt="">
+                                <img src="{{ url_for('static', filename='agency/images/p1.jpg') }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -997,7 +997,7 @@
                         </div>
                         <div class="col-12 col-md-6 price-text">
                             <div class="price-img">
-                                <img src="agency/images/p4.jpg" alt="">
+                                <img src="{{ url_for('static', filename='agency/images/p4.jpg') }}" alt="">
                             </div>
                         </div>
                     </div>
