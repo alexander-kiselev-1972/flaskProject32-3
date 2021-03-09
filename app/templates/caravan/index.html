@@ -1126,7 +1126,7 @@
                         <div class="figure">
                             <a href="javascript:void(0);">
                                 <i class="lab la-instagram"></i>
-                                <img src="agency/img/social2.jpg" alt="image">
+                                <img src="{{ url_for('static', filename='agency/img/social2.jpg') }}" alt="image">
                             </a>
                         </div>
                     </div>
@@ -1134,7 +1134,7 @@
                         <div class="figure">
                             <a href="javascript:void(0);">
                                 <i class="lab la-instagram"></i>
-                                <img src="agency/img/social3.jpg" alt="image">
+                                <img src="{{ url_for('static', filename='agency/img/social3.jpg') }}" alt="image">
                             </a>
                         </div>
                     </div>
@@ -1145,7 +1145,7 @@
                     <div class="figure">
                         <a href="javascript:void(0);">
                             <i class="lab la-instagram"></i>
-                            <img src="agency/img/social1.jpg" alt="image">
+                            <img src="{{ url_for('static', filename="agency/img/social1.jpg") }}" alt="image">
                         </a>
                     </div>
                 </div>
@@ -1277,62 +1277,62 @@
                 <div class="row">
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Зелений"  value="green">
-                        <div class="color-img" style="background-image: url('agency/images/colors/green.png')"></div>
-                        <div class="color-text">Зелений</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/green.png') }}"></div>
+                        <div class="color-text"><p>Зелений</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Асфальт" value="asphalt">
-                        <div class="color-img" style="background-image: url('agency/images/colors/asphalt.png')"></div>
-                        <div class="color-text">Асфальт</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/asphalt.png') }}"></div>
+                        <div class="color-text"><p>Асфальт</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Болотний" value="marsh">
-                        <div class="color-img" style="background-image: url('agency/images/colors/marsh.png')"></div>
-                        <div class="color-text">Болотний</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/marsh.png') }}"></div>
+                        <div class="color-text"><p>Болотний</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Голубий" value="sky-blue">
-                        <div class="color-img" style="background-image: url('agency/images/colors/sky-blue.png')"></div>
-                        <div class="color-text">Голубий</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/sky-blue.png') }}"></div>
+                        <div class="color-text"><p>Голубий</p></div>
                     </label>
                 </div>
                 <div class="row">
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Жовтий" value="yellow">
-                        <div class="color-img" style="background-image: url('agency/images/colors/yellow.png')"></div>
-                        <div class="color-text">Жовтий</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/yellow.png') }}"></div>
+                        <div class="color-text"><p>Жовтий</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Червоний" value="red">
-                        <div class="color-img" style="background-image: url('agency/images/colors/red.png')"></div>
-                        <div class="color-text">Червоний</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/red.png') }}"></div>
+                        <div class="color-text"><p>Червоний</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Оранжевий" value="orange">
-                        <div class="color-img" style="background-image: url('agency/images/colors/orange.png')"></div>
-                        <div class="color-text">Оранжевий</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/orange.png') }}"></div>
+                        <div class="color-text"><p>Оранжевий</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Сірий" value="grey">
-                        <div class="color-img" style="background-image: url('agency/images/colors/grey.png')"></div>
-                        <div class="color-text">Сірий</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/grey.png') }}"></div>
+                        <div class="color-text"><p>Сірий</p></div>
                     </label>
                 </div>
                 <div class="row">
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Синій" value="blue">
-                        <div class="color-img" style="background-image: url('agency/images/colors/blue.png')"></div>
-                        <div class="color-text">Синій</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/blue.png') }}"></div>
+                        <div class="color-text"><p>Синій</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Фіолетовий" value="violet">
-                        <div class="color-img" style="background-image: url('agency/images/colors/violet.png')"></div>
-                        <div class="color-text">Фіолетовий</div>
+                        <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/violet.png') }}"></div>
+                        <div class="color-text"><p>Фіолетовий</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Інший колір" value="another-color">
                         <div class="color-img" style="background-image: {{ url_for('static', filename='agency/images/colors/another-color.png') }}"></div>
-                        <div class="color-text">Інший колір</div>
+                        <div class="color-text"><p>Інший колір</p></div>
                     </label>
                     <label class="color-block">
                         <input class="color-radio" type="radio" name="color" data-name="Хочу свій принт" value="own-print">
