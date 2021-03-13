@@ -31,7 +31,7 @@
     <!-- main style-->
     <link rel="stylesheet" href="{{ url_for('static', filename= 'agency/css/style.css')}}">
 
-    <script src={{ source }}></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="100">
 
@@ -99,8 +99,8 @@
                            <a class="nav-link scroll" href="#company-portfolio-section">ФОТОГАЛЕРЕЯ</a>
                        </li>
                    </ul>
-                   <a class="navbar-brand standard-logo" href="/"><img src="agency/images/logo.png" alt="logo"></a>
-                   <a class="navbar-brand fixed-logo" href="/"><img src="agency/images/logo-3.png" alt="logo"></a>
+                   <a class="navbar-brand standard-logo" href="/"><img src="{{ url_for('static', filename="agency/images/logo.png")}}" alt="logo"></a>
+                   <a class="navbar-brand fixed-logo" href="/"><img src="{{ url_for('static', filename="agency/images/logo-3.png")}}" alt="logo"></a>
                    <ul class="navbar-nav right-nav d-flex  ml-auto">
                        <li class="nav-item">
                            <a class="nav-link scroll" href="#our-services">МОДЕЛИ</a>
@@ -1191,9 +1191,11 @@
                         <div class="col-12 col-md-6 addr-list">
                             <h4 class="heading-text">Slovensko</h4>
                             <ul>
+                                {% block rekvisit %}
                                 <li><i class="las la-mobile-alt"></i><a href="tel:+421-950-764-554">+421 950 764 554</a></li>
                                 <li><i class="las la-envelope"></i><a href="mailto:karavan@deilmann.sk">karavan@deilmann.sk</a></li>
                                 <li><i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">Medzi vodami 216/6, <br>965 01 Žiar nad Hronom</a></li>
+                                {% endblock %}
                             </ul>
                         </div>
                     </div>
@@ -1201,12 +1203,14 @@
             </div>
             <div class="col-12 col-lg-6 contact-box text-center text-md-left">
                 <div class="c-box wow fadeInRight">
-                <h4 class="small-heading">Leave Message</h4>
-                <form class="contact-form" id="contact-form">
+                <h4 class="small-heading">Leave Message</h4>{% block form %}
+
+                <form class="contact-form" id="contact-form" method="post">
+
                     <div class="row my-form">
                         <div class="display-error"><span id="error"></span></div>
                         <div class="col-12 col-md-6">
-                            <input type="text" class="form-control" id="candidate_fname" name="candidate_fname" placeholder="First Name" required="required">
+                           <input type="text" class="form-control" id="candidate_fname" name="candidate_fname" placeholder="First Name" required="required">
                         </div>
                         <div class="col-12 col-md-6">
                             <input type="text" class="form-control" id="candidate_lname" name="candidate_lname" placeholder="Last Name" required="required">
@@ -1226,9 +1230,12 @@
                             </button>
                         </div>
                     </div>
-                </form>
+                </form>{% endblock %}
+
                 </div>
+
             </div>
+
         </div>
     </div>
 </section>
