@@ -1,0 +1,2 @@
+User {{ user.last_name }} has joined.
+and send for you {{ user.message }}.

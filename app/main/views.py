@@ -1,9 +1,9 @@
-from flask import render_template, redirect, url_for, flash
+from flask import render_template, redirect, url_for, flash, request
 from . import main
-
-from ..models import User, Menu
+from ..email import send_email, send_email2
+from ..models import User, Menu, Owner
 from app import db
-from .forms import NameForm, Menu_create
+from .forms import NameForm, Menu_create, LeaveMessage
 
 
 
@@ -26,24 +26,40 @@ def menu_create():
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    menu = Menu.query.all()
-
-    form = NameForm()
+    #menu = Menu.query.all()
+    own = Owner.query.all()
+    form = LeaveMessage()
+    #form = NameForm()
     if form.validate_on_submit():
 
-        name = User.query.filter_by(name=form.name.data).first()
-        if name is None:
-            user = User(name=form.name.data)
-            db.session.add(user)
-            db.session.commit()
-            flash('Записали новенького')
-            form.name.data = ''
-            return redirect(url_for('main.index'))
+        email = User.query.filter_by(email=form.email.data).first()
+        if email is None:
+            user = User(first_name=form.first_name.data,
+                        last_name=form.last_name.data,
+                        email=form.email.data,
+                        subject=form.subject.data,
+                        message=form.message.data)
+            try:
+                db.session.add(user)
+                db.session.commit()
+
+                send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
+                           'mail/new_user', user=user)
+                form.first_name.data = ''
+                form.last_name.data = ''
+                form.email.data = ''
+                form.subject.data = ''
+                form.message.data = ''
+
+            except:
+                pass
+        return redirect(url_for('..index'))
+
     users = User.query.all()
 
-    return render_template('caravan/index.html', form=form, user=users,
-                           menu=menu,
-                           source="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js")
+    return render_template('caravan/index.html',  user=users, own=own,
+                            form=form)
+
 
 @main.route('/user/<name>')
 def user(name):
