@@ -42,7 +42,7 @@ def index():
             try:
                 db.session.add(user)
                 db.session.commit()
-
+                print('send to base')
                 send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
                            'mail/new_user', user=user)
                 form.first_name.data = ''
@@ -50,10 +50,10 @@ def index():
                 form.email.data = ''
                 form.subject.data = ''
                 form.message.data = ''
-
+                print('end try')
             except:
-                pass
-        return redirect(url_for('..index'))
+                print('error')
+            return redirect(url_for('.caravan.index'))
 
     users = User.query.all()
 
