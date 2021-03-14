@@ -4,6 +4,7 @@ from ..email import send_email, send_email2
 from ..models import User, Menu, Owner
 from app import db
 from .forms import NameForm, Menu_create, LeaveMessage
+import json
 
 
 
@@ -30,34 +31,33 @@ def index():
     own = Owner.query.all()
     form = LeaveMessage()
     #form = NameForm()
-    if form.validate_on_submit():
+    if request.method == 'POST':
 
-        email = User.query.filter_by(email=form.email.data).first()
-        if email is None:
+        if form.validate_on_submit():
+
             user = User(first_name=form.first_name.data,
-                        last_name=form.last_name.data,
-                        email=form.email.data,
-                        subject=form.subject.data,
-                        message=form.message.data)
-            try:
-                db.session.add(user)
-                db.session.commit()
-                print('send to base')
-                send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
-                           'mail/new_user', user=user)
-                form.first_name.data = ''
-                form.last_name.data = ''
-                form.email.data = ''
-                form.subject.data = ''
-                form.message.data = ''
-                print('end try')
-            except:
-                print('error')
-            return redirect(url_for('.caravan.index'))
+                      last_name=form.last_name.data,
+                     email=form.email.data,
+                     subject=form.subject.data,
+                     message=form.message.data)
+            email = User.query.filter_by(email=form.email.data).first()
+            if email is None:
 
-    users = User.query.all()
+                try:
+                    db.session.add(user)
+                    db.session.commit()
 
-    return render_template('caravan/index.html',  user=users, own=own,
+                except:
+                   pass
+
+            send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
+                    'mail/new_user', user=user)
+            return json.dumps({'success': 'true', 'msg': 'Your message sent successfully'})
+
+        else:
+            return json.dumps({'success': 'false', 'msg': 'Check our fields please'})
+
+    return render_template('caravan/index.html',  own=own,
                             form=form)
 
 
