@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Index{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+{% endblock %}
+{% block content %}
+    <h1>Index</h1>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <p class="important">
+      Welcome to my awesome homepage.
+    </p>
+
+
+    {% block page_content %}
+
+{{ wtf.quick_form(form) }}
+    <ul>{% for i in user%}
+        <li>{{ i.name }}</li>
+        {% endfor %}
+    </ul>
+
+{% endblock %}
+
+
+{% endblock %}
+

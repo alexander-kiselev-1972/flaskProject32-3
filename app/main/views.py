@@ -28,7 +28,7 @@ def menu_create():
 @main.route('/', methods=['GET', 'POST'])
 def index():
     #menu = Menu.query.all()
-    own = Owner.query.all()
+    #own = Owner.query.all()
     form = LeaveMessage()
     #form = NameForm()
     if request.method == 'POST':
@@ -56,9 +56,9 @@ def index():
 
         else:
             return json.dumps({'success': 'false', 'msg': 'Check our fields please'})
+    else:
+        return render_template('caravan/index.html',  forma_forma=form)
 
-    return render_template('caravan/index.html',  own=own,
-                            form=form)
 
 
 @main.route('/user/<name>')

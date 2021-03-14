@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}Menu{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style type="text/css">
+        .important { color: #336699; }
+    </style>
+    {% block menu %}
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="/">Home</a></li>
+                {% for i in menu %}
+                    <li><a href="{{i.url}}">{{ i.name }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endblock %}
+{% endblock %}
+{% block content %}
+    <h1>Menu</h1>
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+    <p class="important">
+      Welcome to my menupage.
+    </p>
+
+<div><a name="top"></a> </div>
+    <p id="part1">Глава 1></p>
+{{ wtf.quick_form(form) }}
+
+{% endblock %}
+
