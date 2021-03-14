@@ -6,17 +6,17 @@
 {#{% block form %}#}
 {#{{ wtf.quick_form(form)}}#}
 {#{% endblock %}#}
-<!-- в форме ниже есть недостаток - почему то views.py redirect(url_for('.index)-->
+{#<!-- в форме ниже есть недостаток - почему то views.py redirect(url_for('.index)-->#}
 {% block form %}
 
 
-{##}
-{#{% for message in get_flashed_messages() %}#}
-{#    <div class="alert alert-warning">#}
-{#        <button type="button" class="close" data-dismiss="alert">&times;</button>{{ message }}#}
-{#    </div>#}
-{#{% endfor %}#}
-    <form class="contact-form" id="contact-form"  method="post">
+
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>{{ message }}
+    </div>
+{% endfor %}
+    <form class="contact-form" id="contact-form"  method="post" action="" role="form">
 
 
 <div class="row my-form">{{ form.csrf_token }}
@@ -28,7 +28,7 @@
     <div class="col-12 col-md-6">{{ form.email(class="form-control", id="user_email",  placeholder="Email", required="required") }}</div>
     <div class="col-12 col-md-6">{{ form.subject(class="form-control", id="user_subject",  placeholder="Subject", required="required") }}</div>
     <div class="col-12">{{ form.message(class="form-control", id="user_message" , placeholder="Message", rows="7", required="required") }}</div>
-    <div class="col-12">{{ form.submit(class="btn anim-btn rounded-pill user-contact") }}</div>
+    <div class="col-12">{{ form.submit(class="btn anim-btn rounded-pill user-contact", id="submit", type="submit") }}</div>
 </div>
 </form>
 
