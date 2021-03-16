@@ -39,7 +39,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(128))
     last_name = db.Column(db.String(128))
-    email = db.Column(db.String(128), unique=True)
+    email = db.Column(db.String(128))
     subject = db.Column(db.String(128))
     message = db.Column(db.Text)
 
