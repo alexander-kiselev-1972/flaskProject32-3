@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, sessions
 from . import main
 from ..email import send_email, send_email2
 from ..models import User, Menu, Owner
@@ -25,39 +25,65 @@ def menu_create():
     return render_template('menu.html', menu=menu, form=form)
 
 
+
 @main.route('/', methods=['GET', 'POST'])
 def index():
+
     #menu = Menu.query.all()
     #own = Owner.query.all()
     form = LeaveMessage()
+
     #form = NameForm()
-    if request.method == 'POST':
+    user = User(first_name=form.first_name.data,
+                last_name=form.last_name.data,
+                email=form.email.data,
+                subject=form.subject.data,
+                message=form.message.data)
+    if form.validate_on_submit():
 
-        if form.validate_on_submit():
+        email_user = User.query.filter_by(email=form.email.data).first()
 
-            user = User(first_name=form.first_name.data,
-                      last_name=form.last_name.data,
-                     email=form.email.data,
-                     subject=form.subject.data,
-                     message=form.message.data)
-            email = User.query.filter_by(email=form.email.data).first()
-            if email is None:
+        if email_user is None:
 
-                try:
-                    db.session.add(user)
-                    db.session.commit()
 
-                except:
-                   pass
-
+            db.session.add(user)
+            db.session.commit()
             send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
-                    'mail/new_user', user=user)
-            return json.dumps({'success': 'true', 'msg': 'Your message sent successfully'})
+                       'mail/new_user', user=user)
+            form.first_name.data = ''
+            form.last_name.data = ''
+            form.email.data = ''
+            form.subject.data = ''
+            form.message.data = ''
+            #return json.dumps({'success': 'true', 'msg': 'Your message sent successfully'})
 
-        else:
-            return json.dumps({'success': 'false', 'msg': 'Check our fields please'})
-    else:
-        return render_template('caravan/index.html',  forma_forma=form)
+            # except:
+            #     flash('insert to base not work')
+            return redirect(url_for('main.index'))
+        # else:
+        #     send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
+        #                 'mail/new_user', user=user)
+        #     form.first_name.data = ''
+        #     form.last_name.data = ''
+        #     form.email.data = ''
+        #     form.subject.data = ''
+        #     form.message.data = ''
+        #
+        # return redirect(url_for('main.index'))
+            #return json.dumps({'success': 'true', 'msg': 'Your message2 sent successfully'})
+
+    elif form.is_submitted():
+
+        send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
+                   'mail/new_user', user=user)
+        form.first_name.data = ''
+        form.last_name.data = ''
+        form.email.data = ''
+        form.subject.data = ''
+        form.message.data = ''
+
+
+    return render_template('caravan/index.html',  forma_forma=form)
 
 
 
