@@ -39,7 +39,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(128))
     last_name = db.Column(db.String(128))
-    email = db.Column(db.String(128), unique=True)
+    email = db.Column(db.String(128))
     subject = db.Column(db.String(128))
     message = db.Column(db.Text)
 
@@ -49,6 +49,10 @@ class User(db.Model):
         user = User(name=name)
         db.session.add(user)
         db.session.commit()
+
+    def validate_email(self, field):
+        if User.query.filter_by(email=field.data.lower()).first():
+            return True
 
     def __repr__(self):
         return self.first_name

@@ -20,12 +20,10 @@ class Menu_create(FlaskForm):
 class LeaveMessage(FlaskForm):
     first_name = StringField('First Name', validators=[DataRequired()])
     last_name = StringField('Last Name', validators=[DataRequired()])
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    email = StringField('Email', validators=[DataRequired(), Regexp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"), Email()])
     subject = StringField('Subject', validators=[DataRequired()])
     message = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
-    def validate_email(self, field):
-        if User.query.filter_by(email=field.data.lower()).first():
-            raise ValidationError('Email already registered.')
+
 

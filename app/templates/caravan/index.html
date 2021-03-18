@@ -1,46 +1,12 @@
 {% extends "caravan/base.html" %}
 {% import "bootstrap/wtf.html" as wtf %}
 {% block forma %}
-    {{ wtf.quick_form(forma_forma) }}
-{#    <div id="msg"></div>#}
-{#    <script>#}
-{##}
-{#            $(document).ready(function () {#}
-{#                $("#form").submit(function (event) {#}
-{#                    event.preventDefault();#}
-{#                    sendAjaxForm("#form", "msg");#}
-{#                                                           })#}
-{#            });#}
-{##}
-{##}
-{#            function sendAjaxForm(form_ajax, msg) {#}
-{#                let form = $("#form" + form_ajax);#}
-{#                $.ajax({#}
-{#                    type: form.attr('method'),#}
-{#                    url: form.attr('action'),#}
-{#                    data: form.serialize(),#}
-{#                    success: function (response) {#}
-{#                        let json = jQuery.parseJSON(response);#}
-{#                        $("#form" + msg).html(json.msg);#}
-{#                        setTimeout(function () {#}
-{#                            $("#" + msg).html('');#}
-{#                        }, 5000);#}
-{#                        if (json.success) {#}
-{#                            form.trigger('reset');#}
-{#                        }#}
-{#                        else {#}
-{#                            /*alert('Something was wrong!');*/#}
-{#                            $("#" + msg).html(json.msg);#}
-{#                            console.log('Some error, check all fields, please');#}
-{#                            /*form.trigger('reset');*/#}
-{#                        }#}
-{#                    },#}
-{#                    error: function (error) {#}
-{#                        console.log(error);#}
-{#                    }#}
-{#                });#}
-{#            }#}
-{#        </script>#}
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert"></button>{{ message }}</div>
+{% endfor %}
+    {{ wtf.quick_form(form) }}
+
 {% endblock %}
 
 {#{% block forma %}#}
@@ -93,7 +59,7 @@
 {#                            form.trigger('reset');#}
 {#                        }#}
 {#                        else {#}
-                            {#alert('Something was wrong!');
+{#                            alert('Something was wrong!');#}
 {#                            $("#" + msg).html(json.msg);#}
 {#                            console.log('Some error, check all fields, please');#}
 {#                        }#}
@@ -105,7 +71,7 @@
 {#            }#}
 {#        </script>#}
 {#{% endblock %}#}
-{##}
+
 {##}
 {##}
 {#{% block rekvisit %}#}
