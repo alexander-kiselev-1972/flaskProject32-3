@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request
 from . import main
 from ..email import send_email, send_email2
-from ..models import User, Menu, Owner
+from ..models import User, Menu, Owner, Messages
 from app import db
 from .forms import NameForm, Menu_create, LeaveMessage
 import json
@@ -81,8 +81,10 @@ def index():
     user = User(first_name=form.first_name.data,
                 last_name=form.last_name.data,
                 email=form.email.data,
-                subject=form.subject.data,
-                message=form.message.data)
+                subject=form.subject.data)
+
+
+
 
 
 
@@ -90,14 +92,13 @@ def index():
 
         db.session.add(user)
         db.session.commit()
+        user_id = User.getUserId(db.session, form.email.data)
+        message_user = Messages(user_id=user_id, message=form.message.data)
+        db.session.add(message_user)
+        db.session.commit()
+
         flash('you are added to the database')
         #time.sleep(3)
-
-
-
-
-
-
 
         send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
                    'mail/new_user', user=user)

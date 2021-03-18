@@ -41,7 +41,7 @@ class User(db.Model):
     last_name = db.Column(db.String(128))
     email = db.Column(db.String(128))
     subject = db.Column(db.String(128))
-    message = db.Column(db.Text)
+    mess = db.relationship('Messages', backref='messages')
 
 
 
@@ -54,8 +54,22 @@ class User(db.Model):
         if User.query.filter_by(email=field.data.lower()).first():
             return True
 
+    def getUserId(self, mail):
+        id_user = User.query.filter_by(email=mail).first().id
+        return id_user
+
     def __repr__(self):
         return self.first_name
+
+
+class Messages(db.Model):
+    __tablename__ = 'messages'
+    id = db.Column(db.Integer, primary_key=True)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    message = db.Column(db.Text)
+
+    def __repr__(self):
+        return self.message
 
 
 class Role(db.Model):

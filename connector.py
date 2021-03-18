@@ -1,7 +1,8 @@
 # -*- coding: utf-8 -*-
 import sqlite3
 
-sql = 'select * from user;'
+sql = 'select * from user; select * from messages;' \
+      ''
 
 def connectDB():
     con = sqlite3.connect('data-dev.sqlite')
@@ -12,7 +13,7 @@ def connectDB():
 
 def insertDB(cur,  sql):
     try:
-        data = cur.execute(sql)
+        data = cur.executescript(sql)
         for i in data:
             print(i)
     except:
