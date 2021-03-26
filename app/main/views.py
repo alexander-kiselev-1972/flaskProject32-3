@@ -4,6 +4,7 @@ from ..email import send_email, send_email2
 from ..models import User, Menu, Owner, Messages
 from app import db
 from .forms import NameForm, Menu_create, LeaveMessage
+from sqlalchemy.exc import IntegrityError
 import json
 import time
 
@@ -78,63 +79,71 @@ def menu_create():
 def index():
 
     form = LeaveMessage()
-    user = User(first_name=form.first_name.data,
-                last_name=form.last_name.data,
-                email=form.email.data,
-                subject=form.subject.data)
-
-
-
-
-
-
     if form.validate_on_submit():
+        user_first_name = form.first_name.data
+        
+        user_email = User.query.filter_by(email=form.email.data).first()
+        if user_email is not None:
+            flash("пользователь  уже зарегистрирован")
+            subject = form.subject.data
+            messages = form.message.data
+            user_id = User.query.filter_by(email=form.email.data).first().id
+            messages_to = Messages(user_id=user_id, subject=subject, message=messages)
 
-        db.session.add(user)
-        db.session.commit()
-        user_id = User.getUserId(db.session, form.email.data)
-        message_user = Messages(user_id=user_id, message=form.message.data)
-        db.session.add(message_user)
-        db.session.commit()
+            db.session.add(messages_to)
+            db.session.commit()
 
-        flash('you are added to the database')
-        #time.sleep(3)
 
-        send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
-                   'mail/new_user', user=user)
-        form.first_name.data = ''
-        form.last_name.data = ''
-        form.email.data = ''
-        form.subject.data = ''
-        form.message.data = ''
-            #return json.dumps({'success': 'true', 'msg': 'Your message sent successfully'})
-
-            # except:
-            #     flash('insert to base not work')
-        return redirect(url_for('main.index'))
+            # user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data)
+            # user_message = Messages.query.filter_by(user_id=user_id).first().message
+            # user_subject = Messages.query.filter_by(user_id=user_id).first().subject
 
 
 
-    elif User.query.filter_by(email=form.email.data).first() is not None:
-        send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
-                   'mail/new_user', user=user)
-        flash('you send messege for as successfully ')
-    #return json.dumps({'success': 'true', 'msg': 'Your message2 sent successfully'})
-    form.first_name.data = ''
-    form.last_name.data = ''
-    form.email.data = ''
-    form.subject.data = ''
-    form.message.data = ''
+            send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
+                   'mail/new_user', user=form.first_name.data, email=form.email.data, user_subject=form.subject.data, user_message=form.message.data )
 
-    return render_template('caravan/index.html',  form=form)
+            form.first_name.data = ''
+            form.last_name.data = ''
+            form.email.data = ''
+            form.subject.data = ''
+            form.message.data = ''
+
+            return redirect(url_for('main.index'))
+            #return render_template('caravan/index.html', form=form)
+        else:
+            flash("новый пользователь")
+            user_to = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data)
+
+            db.session.add(user_to)
+            db.session.commit()
+
+            messages = form.message.data
+            subject = form.subject.data
+            user_id = User.query.filter_by(email=form.email.data).first().id
+            messages_to = Messages(user_id=user_id, subject=subject, message=messages)
+
+            db.session.add(messages_to)
+            db.session.commit()
+
+            send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
+                       'mail/new_user', user=form.first_name.data, user_subject=form.subject.data, user_message=form.message.data)
+            form.first_name.data = ''
+            form.last_name.data = ''
+            form.email.data = ''
+            form.subject.data = ''
+            form.message.data = ''
+            return redirect(url_for('main.index'))
+            #return render_template('caravan/index.html', form=form)
+    return render_template('caravan/index.html', form=form)
 
 
-
-@main.route('/user/<name>')
-def user(name):
-    return render_template('user.html', name=name)
-
-
-@main.route('/menu#part1')
-def part1():
-    return render_template('index.html/#part1')
+#
+# @main.route('/user/<name>')
+# def user(name):
+#     return render_template('user.html', name=name)
+#
+#
+# @main.route('/menu#part1')
+# def part1():
+#     return render_template('index.html/#part1')

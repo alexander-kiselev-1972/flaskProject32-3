@@ -1,2 +1,4 @@
-User {{ user.last_name }} has joined.
-and send for you {{ user.message }}.
+User {{ user.first_name }} has joined.
+and send for you from{{ user.email }}
+{{ user_subject.user_subject }}
+{{ user_message.user_message }}

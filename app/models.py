@@ -39,8 +39,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(128))
     last_name = db.Column(db.String(128))
-    email = db.Column(db.String(128))
-    subject = db.Column(db.String(128))
+    email = db.Column(db.String(128), unique=True)
     mess = db.relationship('Messages', backref='messages')
 
 
@@ -66,6 +65,7 @@ class Messages(db.Model):
     __tablename__ = 'messages'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    subject = db.Column(db.String(128))
     message = db.Column(db.Text)
 
     def __repr__(self):

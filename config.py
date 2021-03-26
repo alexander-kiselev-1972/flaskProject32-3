@@ -25,11 +25,11 @@ class Config:
 class DevelopmentConfig(Config):
     DEBUG = True
     '''
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or 'postgresql://postgres:oSaka_2019@localhost:5432/campers3'
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or 'postgresql://postgres:oSaka_2019@localhost:5432/campers4'
 '''
 
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-        'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:oSaka_2019@localhost:5432/campers4'
+
 
 
 class TestingConfig(Config):

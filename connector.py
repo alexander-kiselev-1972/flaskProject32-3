@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 import sqlite3
 
-sql = 'select * from user; select * from messages;' \
-      ''
+sql = '(select * from user); (select * from messages);'
+
 
 def connectDB():
     con = sqlite3.connect('data-dev.sqlite')
