@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+{% from "caravan/macros.html" import rad %}
+
 {% block en %}
 <html lang="en">
 {% endblock %}
@@ -531,7 +533,7 @@
                         <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"><p>Все</p></div>
                         <div data-filter=".veles" class="cbp-filter-item"><p>VELES</p></div>
                         <div data-filter=".yenisei" class="cbp-filter-item"><p>YENISEI</p></div>
-                        <div data-filter=".ural" class="cbp-filter-item"><p>URAL</p></div>
+                        <div data-filter=".ural" class="cbp-filter-item"><p>{{ rad(own) }}</p></div>
                         <div data-filter=".additions" class="cbp-filter-item"><p>Дополнения</p></div>
                     </div>
 
@@ -824,6 +826,7 @@
 <!--Quote sec end-->
 
 <!--clients section start-->
+<!--
 <section id="client-sec" class="client-sec">
     <div class="container">
         <div class="row">
@@ -855,7 +858,7 @@
                             <div class="test-info">
                                 <div class="media">
                                     <div class="client-img-holder mr-3">
-                                    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">
+{#                                    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">#}
                                     </div>
                                     <div class="client-info media-body">
                                         <h5 class="client-name mt-0">JOE MARTIN -</h5>
@@ -881,7 +884,7 @@
                             <div class="test-info">
                                 <div class="media">
                                     <div class="client-img-holder mr-3">
-                                    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">
+                                  {#    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">#}
                                     </div>
                                     <div class="client-info media-body">
                                         <h5 class="client-name mt-0">ALICE JORDAN -</h5>
@@ -901,8 +904,11 @@
     </div>
 </section>
 <!--clients section end-->
+-->
 
 <!--Pricing section start-->
+
+
 <section id="pricing-sec" class="pricing-sec">
     <div class="container">
         <div class="row">
@@ -913,86 +919,15 @@
                 </div>
             </div>
         </div>
+
         <div class="row pricing-cards">
+            {% for x in models %}
             <div class="col-12 col-lg-4 p-card">
-                <div class="pricing-card wow fadeInLeft">
-                    <h4 class="pricing-heading text-center text-md-left">YENISEI</h4>
-                    <div class="row no-gutters price-info text-center text-md-left">
-                        <div class="col-12 col-md-6 price-tag">
-                         <span class="p-icon"><i class="las la-euro-sign"></i></span>
-                         <span class="p-price">10000</span>
-                        </div>
-                        <div class="col-12 col-md-6 price-text">
-                            <div class="price-img">
-                                <img src="{{ url_for('static', filename='agency/images/p3.jpg') }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <form class="caravan-price">
-                        <ul class="feature-list">
-                            <li><label class="custom-checkbox"><input type="checkbox" name="heater" value="100" data-price="100"><span>Heater<img src="agency/images/heater.png" alt="Heater"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="solar_panel" value="200" data-price="200"><span>Solar panel<img src="agency/images/solar-panel.png" alt="Solar panel"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="hatch_fan" value="3000" data-price="300"><span>Roof hatch fan<img src="agency/images/hatch-fan.png" alt="Roof hatch fan"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="caravan_cover" value="400" data-price="400"><span>Caravan cover<img src="agency/images/caravan-cover.png" alt="Caravan cover"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="support_legs" value="300"  data-price="300"><span>Trailer support legs<img src="agency/images/support-legs.png" alt="Trailer support legs"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="roof_rack" value="200"  data-price="200"><span>Roof rack cross bars<img src="agency/images/roof-rack.png" alt="Roof rack cross bars"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="spare_tire" value="100"  data-price="100"><span>Spare tire<img src="agency/images/spare-tire.png" alt="Spare tire"></span></label></li>
-                            <input type="hidden" name="color" value="">
 
-                            <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="0">Choose a color</button></li>
 
-                            <li><label class="custom-radio"><input type="radio" name="chassis" value="no-chassis" data-price="" checked><span>Without chassis<img src="agency/images/no-chassis.png" alt="Without chassis"></span></label></li>
-                            <li><label class="custom-radio"><input type="radio" name="chassis" value="with-chassis" data-price="1500"><span>With chassis<img src="agency/images/with-chassis.png" alt="With chassis"></span></label>
-                                <ul class="feature-list brake">
-                                    <li><label class="custom-checkbox"><input type="checkbox" name="parking-brake" value="500"  data-price="500" disabled><span>With parking brake<img src="agency/images/parking-brake-2.jpg" alt="Parking brake"></span></label></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn yellow-anim-btn rounded-pill w-100"><span></span><span></span><span></span><span></span><span></span>Купить</a>
-                    </form>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 p-card">
-                <div class="pricing-card active wow fadeInUp">
-                    <h4 class="pricing-heading text-center text-md-left">VELES</h4>
-                    <div class="row no-gutters price-info text-center text-md-left">
-                        <div class="col-12 col-md-6 price-tag">
-                            <span class="p-icon"><i class="las la-euro-sign"></i></span>
-                            <span class="p-price">11500</span>
-                        </div>
-                        <div class="col-12 col-md-6 price-text">
-                            <div class="price-img">
-                                <img src="{{ url_for('static', filename='agency/images/p1.jpg') }}" alt="">
-                            </div>
-                        </div>
-                    </div>
-                    <form class="caravan-price">
-                        <ul class="feature-list">
-                            <li><label class="custom-checkbox"><input type="checkbox" name="heater" value="100" data-price="100"><span>Heater<img src="agency/images/heater.png" alt="Heater"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="solar_panel" value="200" data-price="200"><span>Solar panel<img src="agency/images/solar-panel.png" alt="Solar panel"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="hatch_fan" value="3000" data-price="300"><span>Roof hatch fan<img src="agency/images/hatch-fan.png" alt="Roof hatch fan"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="caravan_cover" value="400" data-price="400"><span>Caravan cover<img src="agency/images/caravan-cover.png" alt="Caravan cover"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="support_legs" value="300"  data-price="300"><span>Trailer support legs<img src="agency/images/support-legs.png" alt="Trailer support legs"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="roof_rack" value="200"  data-price="200"><span>Roof rack cross bars<img src="agency/images/roof-rack.png" alt="Roof rack cross bars"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="spare_tire" value="100"  data-price="100"><span>Spare tire<img src="agency/images/spare-tire.png" alt="Spare tire"></span></label></li>
-                            <input type="hidden" name="color" value="">
+                <div class="{{ x.css_class }}">
 
-                            <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="1">Choose a color</button></li>
-
-                            <li><label class="custom-radio"><input type="radio" name="chassis" value="no-chassis" data-price="" checked><span>Without chassis<img src="agency/images/no-chassis.png" alt="Without chassis"></span></label></li>
-                            <li><label class="custom-radio"><input type="radio" name="chassis" value="with-chassis" data-price="1500"><span>With chassis<img src="agency/images/with-chassis.png" alt="With chassis"></span></label>
-                                <ul class="feature-list brake">
-                                    <li><label class="custom-checkbox"><input type="checkbox" name="parking-brake" value="500"  data-price="500" disabled><span>With parking brake<img src="agency/images/parking-brake-2.jpg" alt="Parking brake"></span></label></li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <a href="#" class="btn yellow-anim-btn rounded-pill w-100"><span></span><span></span><span></span><span></span><span></span>Купить</a>
-                    </form>
-                </div>
-            </div>
-            <div class="col-12 col-lg-4 p-card">
-                <div class="pricing-card wow fadeInRight">
-                    <h4 class="pricing-heading text-center text-md-left">URAL</h4>
+                    <h4 class="pricing-heading text-center text-md-left">{{ x.models_name }}</h4>
                     <div class="row no-gutters price-info text-center text-md-left">
                         <div class="col-12 col-md-6 price-tag">
                          <span class="p-icon"><i class="las la-euro-sign"></i></span>
@@ -1004,32 +939,40 @@
                             </div>
                         </div>
                     </div>
-                    <form class="caravan-price">
-                        <ul class="feature-list">
-                            <li><label class="custom-checkbox"><input type="checkbox" name="heater" value="100" data-price="100"><span>Heater<img src="agency/images/heater.png" alt="Heater"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="solar_panel" value="200" data-price="200"><span>Solar panel<img src="agency/images/solar-panel.png" alt="Solar panel"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="hatch_fan" value="3000" data-price="300"><span>Roof hatch fan<img src="agency/images/hatch-fan.png" alt="Roof hatch fan"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="caravan_cover" value="400" data-price="400"><span>Caravan cover<img src="agency/images/caravan-cover.png" alt="Caravan cover"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="support_legs" value="300"  data-price="300"><span>Trailer support legs<img src="agency/images/support-legs.png" alt="Trailer support legs"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="roof_rack" value="200"  data-price="200"><span>Roof rack cross bars<img src="agency/images/roof-rack.png" alt="Roof rack cross bars"></span></label></li>
-                            <li><label class="custom-checkbox"><input type="checkbox" name="spare_tire" value="100"  data-price="100"><span>Spare tire<img src="agency/images/spare-tire.png" alt="Spare tire"></span></label></li>
+                   <form class="caravan-price" action="/" method="post">
+                       <ul class="feature-list">
+                            <li><label class="custom-checkbox"><input type="checkbox" name="heater" value="100" data-price="100"><span>Heater<img src="{{ url_for('static', filename='agency/images/heater.png') }}" alt="Heater"></span></label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox" name="solar_panel" value="200" data-price="200"><span>Solar panel<img src="{{ url_for('static', filename='agency/images/solar-panel.png') }}" alt="Solar panel"></span></label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox" name="hatch_fan" value="3000" data-price="300"><span>Roof hatch fan<img src="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" alt="Roof hatch fan"></span></label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox" name="caravan_cover" value="400" data-price="400"><span>Caravan cover<img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="Caravan cover"></span></label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox" name="support_legs" value="300"  data-price="300"><span>Trailer support legs<img src="{{ url_for('static', filename='agency/images/support-legs.png') }}" alt="Trailer support legs"></span></label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox" name="roof_rack" value="200"  data-price="200"><span>Roof rack cross bars<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
+                            <li><label class="custom-checkbox"><input type="checkbox" name="spare_tire" value="100"  data-price="100"><span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
                             <input type="hidden" name="color" value="">
 
                             <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="2">Choose a color</button></li>
 
-                            <li><label class="custom-radio"><input type="radio" name="chassis" value="no-chassis" data-price="" checked><span>Without chassis<img src="agency/images/no-chassis.png" alt="Without chassis"></span></label></li>
-                            <li><label class="custom-radio"><input type="radio" name="chassis" value="with-chassis" data-price="1500"><span>With chassis<img src="agency/images/with-chassis.png" alt="With chassis"></span></label>
+                           <li><label class="custom-radio"><input type="radio" name="chassis" value="no-chassis" data-price="" checked><span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
+                           <li><label class="custom-radio"><input type="radio" name="chassis" value="with-chassis" data-price="1500"><span>With chassis<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
                                 <ul class="feature-list brake">
-                                    <li><label class="custom-checkbox"><input type="checkbox" name="parking-brake" value="500"  data-price="500" disabled><span>With parking brake<img src="agency/images/parking-brake-2.jpg" alt="Parking brake"></span></label></li>
-                                </ul>
+                                    <li><label class="custom-checkbox"><input type="checkbox" name="parking-brake" value="500"  data-price="500" disabled><span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
+                               </ul>
                             </li>
                         </ul>
-                        <a href="#" class="btn yellow-anim-btn rounded-pill w-100"><span></span><span></span><span></span><span></span><span></span>Купить</a>
-                    </form>
+                            <input name="submit" type="submit" value="submit">
+                            <a href="#" class="btn yellow-anim-btn rounded-pill w-100"><span></span><span></span><span></span><span></span><span></span>Купить</a>
+                   </form>
                 </div>
             </div>
+                       {% endfor %}
+
+
+
+
+
+
+            </div>
         </div>
-    </div>
 </section>
 <!--Pricing section end-->
 
@@ -1107,7 +1050,7 @@
 <!--</section>-->
 <!--mini blog sec-->
 
-<!--Social Connection sec-->
+<!--Social Connection sec
 <section id="social-sec" class="social-sec">
     <div class="container">
         <div class="row no-gutters">
@@ -1168,7 +1111,7 @@
 
         </div>
     </div>
-</section>
+</section> -->
 <!--Social Connection sec-->
 
 <!--Contact us sec start-->
@@ -1186,17 +1129,23 @@
                         <span class="fly-text">КОНТАКТЫ</span>
                     </div>
                     <p class="small-text text-center text-md-left">
-                        Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard.
+                        {{ own[0].text }}
                     </p>
                     <div class="row location-details text-center text-md-left">
                         <div class="col-12 col-md-6 addr-list">
                             <h4 class="heading-text">Slovensko</h4>
                             <ul>
-                                {% block rekvisit %}
-                                <li><i class="las la-mobile-alt"></i><a href="tel:+421-950-764-554">+421 950 764 554</a></li>
-                                <li><i class="las la-envelope"></i><a href="mailto:karavan@deilmann.sk">karavan@deilmann.sk</a></li>
-                                <li><i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">Medzi vodami 216/6, <br>965 01 Žiar nad Hronom</a></li>
-                                {% endblock %}
+
+                                    <i class="las la-mobile-alt"></i><a href="tel:{{ own[0].phone1 }}">{{ own[0].phone1 }}</a><br>
+                                    <i class="las la-envelope"></i><a href="mailto:{{ own[0].email1 }}">{{  own[0].email1 }}</a><br>
+                                    <i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">{{ own[0].ulica_dom}} <br>{{ own[0].index }}<br> Žiar nad Hronom</a>
+
+
+
+{#                                <li><i class="las la-mobile-alt"></i><a href="tel:+421-950-764-554">+421 950 764 554</a></li>#}
+{#                                <li><i class="las la-envelope"></i><a href="mailto:karavan@deilmann.sk">karavan@deilmann.sk</a></li>#}
+{#                                <li><i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">Medzi vodami 216/6, <br>965 01 Žiar nad Hronom</a></li>#}
+
                             </ul>
                         </div>
                     </div>
@@ -1205,33 +1154,33 @@
             <div class="col-12 col-lg-6 contact-box text-center text-md-left">
                 <div class="c-box wow fadeInRight">
                 <h4 class="small-heading">Leave Message</h4>{% block forma %}
-                <!--
-                <form class="contact-form" id="contact-form" method="post">
 
-                    <div class="row my-form">
-                        <div class="display-error"><span id="error"></span></div>
-                        <div class="col-12 col-md-6">
-                           <input type="text" class="form-control" id="candidate_fname" name="candidate_fname" placeholder="First Name" required="required">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <input type="text" class="form-control" id="candidate_lname" name="candidate_lname" placeholder="Last Name" required="required">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <input type="email" class="form-control" id="user_email" name="user_email" placeholder="Email" required="required">
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <input type="text" class="form-control" id="user_subject" name="user_subject" placeholder="Subject" required="required">
-                        </div>
-                        <div class="col-12">
-                            <textarea class="form-control" id="user_message" name="user_message" placeholder="Message" rows="7" required="required"></textarea>
-                        </div>
-                        <div class="col-12">
-                            <button class="btn anim-btn rounded-pill user-contact" type="submit">SUBMIT
-                                <span></span><span></span><span></span><span></span><span></span>
-                            </button>
-                        </div>
-                    </div>
-                </form>-->
+{#                <form class="contact-form" id="contact-form" method="post">#}
+{##}
+{#                    <div class="row my-form">#}
+{#                        <div class="display-error"><span id="error"></span></div>#}
+{#                        <div class="col-12 col-md-6">#}
+{#                           <input type="text" class="form-control" id="candidate_fname" name="candidate_fname" placeholder="First Name" required="required">#}
+{#                        </div>#}
+{#                        <div class="col-12 col-md-6">#}
+{#                            <input type="text" class="form-control" id="candidate_lname" name="candidate_lname" placeholder="Last Name" required="required">#}
+{#                        </div>#}
+{#                        <div class="col-12 col-md-6">#}
+{#                            <input type="email" class="form-control" id="user_email" name="user_email" placeholder="Email" required="required">#}
+{#                        </div>#}
+{#                        <div class="col-12 col-md-6">#}
+{#                            <input type="text" class="form-control" id="user_subject" name="user_subject" placeholder="Subject" required="required">#}
+{#                        </div>#}
+{#                        <div class="col-12">#}
+{#                            <textarea class="form-control" id="user_message" name="user_message" placeholder="Message" rows="7" required="required"></textarea>#}
+{#                        </div>#}
+{#                        <div class="col-12">#}
+{#                            <button class="btn anim-btn rounded-pill user-contact" type="submit">SUBMIT#}
+{#                                <span></span><span></span><span></span><span></span><span></span>#}
+{#                            </button>#}
+{#                        </div>#}
+{#                    </div>#}
+{#                </form>#}
 
                                                              {% endblock %}
 

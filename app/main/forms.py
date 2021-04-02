@@ -1,5 +1,5 @@
-from flask_wtf import FlaskForm
-from wtforms import StringField, SubmitField, TextAreaField, Form, validators
+from flask_wtf import FlaskForm, Form
+from wtforms import StringField, SubmitField, TextAreaField, Form, validators, RadioField
 from wtforms.validators import DataRequired, Email, Length, Regexp
 from ..models import User
 from wtforms import ValidationError
@@ -24,6 +24,9 @@ class LeaveMessage(FlaskForm):
     subject = StringField('Subject', validators=[DataRequired()])
     message = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Submit')
+
+class price_form(FlaskForm):
+    heater = RadioField('Heater', validators=[DataRequired()])
 
 
 

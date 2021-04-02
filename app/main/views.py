@@ -1,7 +1,7 @@
 from flask import render_template, redirect, url_for, flash, request
 from . import main
 from ..email import send_email, send_email2
-from ..models import User, Menu, Owner, Messages
+from ..models import User, Menu, Owner, Messages, Models
 from app import db
 from .forms import NameForm, Menu_create, LeaveMessage
 from sqlalchemy.exc import IntegrityError
@@ -74,14 +74,19 @@ def menu_create():
 #         return render_template('caravan/index.html',  form=form)
 #
 #
+# @main.route("/macros")
+# def owners_data():
+#     owners_data = Owner.query.all()
+#     return render_template("caravan/macros.html", own=owners_data)
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-
+    own = Owner.query.all()
+    models = Models.query.all()
     form = LeaveMessage()
+
     if form.validate_on_submit():
-        user_first_name = form.first_name.data
-        
+
         user_email = User.query.filter_by(email=form.email.data).first()
         if user_email is not None:
             flash("пользователь  уже зарегистрирован")
@@ -93,16 +98,9 @@ def index():
             db.session.add(messages_to)
             db.session.commit()
 
-
-            # user = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data)
-            # user_message = Messages.query.filter_by(user_id=user_id).first().message
-            # user_subject = Messages.query.filter_by(user_id=user_id).first().subject
-
-
-
             send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
                    'mail/new_user', user=form.first_name.data, email=form.email.data, user_subject=form.subject.data, user_message=form.message.data )
-
+            flash("your messeges for as send to email")
             form.first_name.data = ''
             form.last_name.data = ''
             form.email.data = ''
@@ -110,7 +108,7 @@ def index():
             form.message.data = ''
 
             return redirect(url_for('main.index'))
-            #return render_template('caravan/index.html', form=form)
+
         else:
             flash("новый пользователь")
             user_to = User(first_name=form.first_name.data, last_name=form.last_name.data, email=form.email.data)
@@ -128,14 +126,24 @@ def index():
 
             send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
                        'mail/new_user', user=form.first_name.data, user_subject=form.subject.data, user_message=form.message.data)
+            flash("your messeges for as send to email")
             form.first_name.data = ''
             form.last_name.data = ''
             form.email.data = ''
             form.subject.data = ''
             form.message.data = ''
             return redirect(url_for('main.index'))
-            #return render_template('caravan/index.html', form=form)
-    return render_template('caravan/index.html', form=form)
+
+    return render_template('caravan/index.html', form=form, own=own, models=models)
+
+
+
+    # <div class="col-12">{{ form.submit(class="btn anim-btn rounded-pill user-contact", id="submit",  type="submit", value="Submit") }}</div>#}
+@main.route("/order", methods=['GET', 'POST'])
+def order():
+    data_form = request.form
+    return render_template('caravan/order.html', data_form=data_form)
+
 
 
 #

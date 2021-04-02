@@ -1,36 +1,42 @@
 # -*- coding: utf-8 -*-
 import sqlite3
+import psycopg2
+from config import config_postgres
 
 sql = '(select * from user); (select * from messages);'
 
 
-def connectDB():
-    con = sqlite3.connect('data-dev.sqlite')
-    cur = con.cursor()
-
-    return con, cur
-
-
-def insertDB(cur,  sql):
+def connect():
+    """ Connect to the PostgreSQL database server """
+    conn = None
     try:
-        data = cur.executescript(sql)
-        for i in data:
-            print(i)
-    except:
-        pass
+        # read connection parameters
+        params = config_postgres()
+
+        # connect to the PostgreSQL server
+        print('Connecting to the PostgreSQL database...')
+        conn = psycopg2.connect(**params)
+
+        # create a cursor
+        cur = conn.cursor()
+
+        # execute a statement
+        #print('PostgreSQL database version:')
+        cur.execute('SELECT * from User;')
+
+        # display the PostgreSQL database server version
+        db_version = cur.fetchall()
+        print(db_version)
+
+        # close the communication with the PostgreSQL
+        cur.close()
+    except (Exception, psycopg2.DatabaseError) as error:
+        print(error)
+    finally:
+        if conn is not None:
+            conn.close()
+            print('Database connection closed.')
 
 
-
-
-def close_cur_DB(con, cur):
-    con = con
-    cur = cur
-    cur.close()
-    con.close()
-
-
-con, cur = connectDB()
-
-insertDB(cur, sql)
-
-close_cur_DB(con, cur)
+if __name__ == '__main__':
+    connect()
