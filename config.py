@@ -48,8 +48,8 @@ class DevelopmentConfig(Config):
     '''
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or 'postgresql://postgres:oSaka_2019@localhost:5432/campers4'
 '''
-    # SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or \
-    #                          'sqlite://'
+     # SQLALCHEMY_DATABASE_URI = os.environ.get('TEST_DATABASE_URL') or 'sqlite://'
+
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://postgres:oSaka_2019@localhost:5432/campers4'
 
 class TestingConfig(Config):

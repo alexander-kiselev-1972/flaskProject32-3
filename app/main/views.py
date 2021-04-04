@@ -9,9 +9,7 @@ import json
 import time
 
 
-
 @main.route('/menu', methods=['GET', 'POST'])
-
 def menu_create():
     form = Menu_create()
     if form.validate_on_submit():
@@ -144,6 +142,10 @@ def order():
     data_form = request.form
     return render_template('caravan/order.html', data_form=data_form)
 
+
+@main.route('/cookie')
+def cookie():
+    return render_template('cookie.html')
 
 
 #

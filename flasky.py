@@ -15,6 +15,7 @@ for key in dict_models:
     admin.add_view(ModelView(dict_models[key], db.session))
 '''
 
+
 @app.shell_context_processor
 def make_shell_context():
     return dict(db=db, User=User, Owner=Owner)

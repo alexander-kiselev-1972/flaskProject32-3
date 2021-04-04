@@ -128,7 +128,7 @@ if ($("#google-map").length) {
         var marker = new google.maps.Marker({
             position: map.getCenter(),
             /* Map Marker if you want to add custom icon */
-            icon: 'agency/img/pin.png',
+            icon: '/static/agency/images/pin.png',
             map: map
         });
 

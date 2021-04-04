@@ -17,21 +17,21 @@
     <!-- Page Title -->
     <title>Obytné prívesy | DEILMANN s.r.o.</title>
     <!-- Favicon -->
-    <link rel="icon" href="agency/images/favicon.ico">
+    <link rel="icon" href="{{ url_for('static', filename='agency/images/favicon.ico') }}">
     <!--css links-->
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/bundle.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/cubeportfolio.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/wow.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/owl.carousel.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/mediaelementplayer.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/line-awesome.min.css')}}">
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/settings.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/bundle.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/cubeportfolio.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/wow.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/mediaelementplayer.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'agency/css/line-awesome.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'agency/css/settings.css') }}">
 
 
 <!--    <link rel="stylesheet" href="agency/css/slider.css">-->
 
     <!-- main style-->
-    <link rel="stylesheet" href="{{ url_for('static', filename= 'agency/css/style.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'agency/css/style.css') }}">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
@@ -68,8 +68,8 @@
                 </div>
                 <div class="col-12 col-lg-6 mt-auto mb-auto">
                     <ul class="top-detail d-block d-lg-flex justify-content-center justify-content-lg-end">
-                        <li class="d-none d-lg-block"><span><i class="la la-mobile"></i></span><a href="tel:+421-950-764-554">+421 950 764 554</a></li>
-                        <li class="d-none d-lg-block"><span><i class="la la-envelope"></i></span><a href="mailto:caravan@deilmann.sk">karavan@deilmann.sk</a></li>
+                        <li class="d-none d-lg-block"><span><i class="la la-mobile"></i></span><a href="tel:+421-950-764-554">{{ own[0].phone1 }}</a></li>
+                        <li class="d-none d-lg-block"><span><i class="la la-envelope"></i></span><a href="mailto:{{ own[0].email2 }}">{{ own[0].email2 }}</a></li>
                         <li class="social-links">
                             <span class="fb"><a href="#"><i class="la la-facebook-f"></i></a></span>
                             <span class="twit"><a href="#"><i class="la la-twitter"></i></a></span>
@@ -81,7 +81,7 @@
                         <span></span>
                         <span></span>
                     </div>
-                    <a class="navbar-brand d-block d-lg-none" href="#"><img src="{{ url_for('static', filename='agency/images/logo.png') }}" alt="logo"></a>
+                    <a class="navbar-brand d-block d-lg-none" href="{{ url_for('main.index') }}"><img src="{{ url_for('static', filename='agency/images/logo.png') }}" alt="logo"></a>
                 </div>
             </div>
         </div>
@@ -164,7 +164,7 @@
                 <li data-index="rs-1" data-transition="slideleft,slideright" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500,1500"  data-thumb="assets/50x50_d6aeb-slide1-org.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
                     <img src="{{ url_for('static', filename='agency/images/slide1.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-                    <img src="agency/images/slide1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
+{#                    <img src="agency/images/slide1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>#}
                     <!-- LAYERS -->
 
                     <!-- LAYER NR. 1 -->
@@ -447,7 +447,7 @@
             </ul>
             <div class="tp-bannertimer tp-bottom" style="visibility: hidden !important;"></div>
         </div>
-    </div><!-- END REVOLUTION SLIDER -->
+    </div>
     <!-- END REVOLUTION SLIDER -->
 
 </div>
@@ -481,8 +481,6 @@
         <div class="row text-center">
             <div class="col-12 col-md-6 col-lg-4 about-media wow fadeInUp">
                    <span class="about-icon">
-<!--                       <a href="#"><i class="la la-bicycle"></i></a>-->
-<!--                       <i class="la la-bicycle"></i>-->
                        <i class="fas fa-cloud-sun-rain"></i>
                    </span>
                    <h4 class="small-heading">В любую погоду</h4>
@@ -491,7 +489,6 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4 about-media wow fadeInUp">
                    <span class="about-icon">
-<!--                       <a href="#"><i class="las la-globe"></i></a>-->
                        <i class="la la-globe"></i>
                    </span>
                    <h4 class="small-heading">По любым дорогам</h4>
@@ -502,7 +499,6 @@
             <div class="col-12 col-md-6 col-lg-4 about-media wow fadeInUp">
                    <span class="about-icon">
                        <i class="la la-bold"></i>
-<!--                       <a href="javascript:void(0)"></a>-->
                    </span>
                    <h4 class="small-heading">Достаточно кат. В</h4>
                     <span class="ex-line"></span>
@@ -729,7 +725,7 @@
                     <div class="tab-pane fade show active" id="p1" role="tabpanel" aria-labelledby="pills-1-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="agency/img/service1.png">
+                                <img alt="service1" src="{{ url_for('static', filename='agency/images/service1.png') }}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
@@ -747,7 +743,7 @@
                     <div class="tab-pane fade show" id="p2" role="tabpanel" aria-labelledby="pills-2-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="{{ url_for('static', filename='agency/img/service2.png')}}">
+                                <img alt="service2" src="{{ url_for('static', filename='agency/images/service2.png')}}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
@@ -765,7 +761,7 @@
                     <div class="tab-pane fade show" id="p3" role="tabpanel" aria-labelledby="pills-3-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="{{ url_for('static', filename='agency/img/service3.png') }}">
+                                <img alt="service3" src="{{ url_for('static', filename='agency/images/service3.png') }}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
@@ -783,7 +779,7 @@
                     <div class="tab-pane fade show" id="p4" role="tabpanel" aria-labelledby="pills-4-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="{{ url_for('static', filename='agency/img/service4.jpg')}}">
+                                <img alt="service4" src="{{ url_for('static', filename='agency/images/service4.jpg')}}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
@@ -813,8 +809,8 @@
         <div class="col-12 text-center d-flex justify-content-center">
             <div class="q-detail">
             <p class="quote-text"><i class="fas fa-quote-left"></i>
-<!--                Creativity is allowing yourself to make mistakes-->
-<!--                Art is knowing which ones to keep-->
+                Creativity is allowing yourself to make mistakes
+                Art is knowing which ones to keep
                 Some people dream of success, while other people get up every morning and make it happen.
                 <i class="fas fa-quote-right"></i></p>
             <h4 class="quote-writer mb-0">- ALICE JOHNSON -</h4>
@@ -825,90 +821,7 @@
 </section>
 <!--Quote sec end-->
 
-<!--clients section start-->
-<!--
-<section id="client-sec" class="client-sec">
-    <div class="container">
-        <div class="row">
-            <div class="col-12 col-lg-4 client-heading">
-                <div class="ex-detail wow fadeInLeft">
-                    <h4 class="large-heading">
-                        <span class="heading-1">Наши</span>
-                        <span class="heading-2">счастливые покупатели</span>
-                    </h4>
-                    <span class="fly-text">Отзывы</span>
-                </div>
-            </div>
-            <div class="col-12 col-lg-8 client-des">
-                <div class="testimonial-box owl-carousel owl-theme wow fadeInRight">
-                        <div class="item t-box">
-                            <div class="testimonial-heading">
-                                <h3 class="test-heading">Quality Support</h3>
-                                <ul class="test-review">
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <p class="testimonial-comment small-text">
-                                Lorem ipsum is simply dummy text of the printing and type setting. Lorem Ipsum has been the industry’s standard dummy. Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the industry’s standard dummy.
-                            </p>
-                            <div class="test-info">
-                                <div class="media">
-                                    <div class="client-img-holder mr-3">
-{#                                    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">#}
-                                    </div>
-                                    <div class="client-info media-body">
-                                        <h5 class="client-name mt-0">JOE MARTIN -</h5>
-                                        <p class="client-designation">Senior Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item t-box">
-                            <div class="testimonial-heading">
-                                <h3 class="test-heading">Quality Support</h3>
-                                <ul class="test-review">
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                    <li><a href="#"><i class="las la-star"></i></a></li>
-                                </ul>
-                            </div>
-                            <p class="testimonial-comment small-text">
-                                Lorem ipsum is simply dummy text of the printing and type setting. Lorem Ipsum has been the industry’s standard dummy. Lorem ipsum is simply dummy text of the printing and typesetting. Lorem Ipsum has been the industry’s standard dummy.
-                            </p>
-                            <div class="test-info">
-                                <div class="media">
-                                    <div class="client-img-holder mr-3">
-                                  {#    <img src="{{ url_for('static', filename='agency/img/client.jpg') }}" class="align-self-center" alt="image">#}
-                                    </div>
-                                    <div class="client-info media-body">
-                                        <h5 class="client-name mt-0">ALICE JORDAN -</h5>
-                                        <p class="client-designation">Senior Developer</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-
-                <div class="testimonial-navigation">
-                    <span class="left-arr t-customPrevBtn"><i class="la la-long-arrow-alt-left"></i></span>
-                    <span class="right-arr t-customNextBtn"><i class="la la-long-arrow-alt-right"></i></span>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--clients section end-->
--->
-
 <!--Pricing section start-->
-
-
 <section id="pricing-sec" class="pricing-sec">
     <div class="container">
         <div class="row">
@@ -976,146 +889,7 @@
 </section>
 <!--Pricing section end-->
 
-<!--mini blog sec-->
-<!--<section id="mini-blog-sec" class="mini-blog-sec">-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="col-12 col-lg-5">-->
-<!--                <div class="mini-blog-detail wow fadeInLeft">-->
-<!--                    <div class="ex-detail">-->
-<!--                        <h4 class="large-heading">-->
-<!--                            <span class="heading-1">From</span>-->
-<!--                            <span class="heading-2">The Latest News</span>-->
-<!--                        </h4>-->
-<!--                        <span class="fly-text">READ BLOGS</span>-->
-<!--                    </div>-->
-<!--                    <div class="text-center text-md-left">-->
-<!--                    <p class="small-text">-->
-<!--                        Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard.-->
-<!--                    </p>-->
-<!--                    <a href="agency/standard-blog.html" class="btn anim-btn rounded-pill">VIEW ALL POST-->
-<!--                        <span></span><span></span><span></span><span></span>-->
-<!--                    </a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--            <div class="col-12 col-lg-7">-->
-<!--                <div class="row">-->
-<!--                    <div class="col-12 col-md-6 card-blog">-->
-<!--                        <div class="mini-blog wow fadeInUp">-->
-<!--                            <div class="m-blog-detail">-->
-<!--                            <h4 class="mini-blog-title">Standard Post Fullwidth</h4>-->
-<!--                            <p class="small-text">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem-->
-<!--                                Ipsum standard dummy.</p>-->
-<!--                                <span class="hover-line"></span><a class="mini-blog-link" href="agency/single-blog.html">Read More <i class="las la-angle-right"></i></a>-->
-<!--                            </div>-->
-<!--                            <div class="user-detail">-->
-<!--                                <div class="row no-gutters">-->
-<!--                                    <div class="col-md-6 col-sm-7 col-xs-5">-->
-<!--                                        <span class="user-img"><img src="agency/img/b1.jpg" alt="user"></span>-->
-<!--                                        <p class="user-name">Pamela Smith</p>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-md-6 col-sm-5 col-xs-7">-->
-<!--                                        <p class="text-right posted-date">November 27,2020</p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-12 col-md-6 card-blog">-->
-<!--                        <div class="mini-blog wow fadeInUp">-->
-<!--                            <div class="m-blog-detail">-->
-<!--                            <h4 class="mini-blog-title">Standard Post Fullwidth</h4>-->
-<!--                            <p class="small-text">Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem-->
-<!--                                Ipsum standard dummy.</p>-->
-<!--                            <span class="hover-line"></span><a class="mini-blog-link" href="agency/single-blog.html">Read More <i class="las la-angle-right"></i></a>-->
-<!--                            </div>-->
-<!--                            <div class="user-detail">-->
-<!--                                <div class="row no-gutters">-->
-<!--                                    <div class="col-md-6 col-sm-7 col-xs-5">-->
-<!--                                        <span class="user-img"><img src="agency/img/b2.jpg" alt="user"></span>-->
-<!--                                        <p class="user-name">John Smith</p>-->
-<!--                                    </div>-->
-<!--                                    <div class="col-md-6 col-sm-5 col-xs-7">-->
-<!--                                        <p class="text-right posted-date">November 27,2020</p>-->
-<!--                                    </div>-->
-<!--                                </div>-->
-<!--                            </div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section>-->
-<!--mini blog sec-->
-
-<!--Social Connection sec
-<section id="social-sec" class="social-sec">
-    <div class="container">
-        <div class="row no-gutters">
-            <div class="col-12 col-lg-6">
-                <div class="row no-gutters">
-                    <div class="col-12 twitter-box">
-                        <span class="twit-icon"><i class="lab la-twitter"></i></span>
-                        <div class="twitter-head d-flex justify-content-end">
-                            <span class="twit-mention">@newsitedesign</span>
-                        </div>
-                        <div class="twitter-detail text-center">
-                            <p class="small-text">
-                                Lorem ipsum is simply <b>@www.google.com</b> dummy text of the typesetting industry. Lorem Ipsum standard dummy.
-                            </p>
-                            <a class="btn twit-btn rounded-pill">35K FOLLOWERS</a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 social-tab2">
-                        <div class="figure">
-                            <a href="javascript:void(0);">
-                                <i class="lab la-instagram"></i>
-                                <img src="{{ url_for('static', filename='agency/img/social2.jpg') }}" alt="image">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-md-6 social-tab3">
-                        <div class="figure">
-                            <a href="javascript:void(0);">
-                                <i class="lab la-instagram"></i>
-                                <img src="{{ url_for('static', filename='agency/img/social3.jpg') }}" alt="image">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-12 col-lg-6 img-box">
-                <div class="s-img-area">
-                    <div class="figure">
-                        <a href="javascript:void(0);">
-                            <i class="lab la-instagram"></i>
-                            <img src="{{ url_for('static', filename="agency/img/social1.jpg") }}" alt="image">
-                        </a>
-                    </div>
-                </div>
-                <div class="facebook-box">
-                    <span class="face-icon"><i class="lab la-facebook-f"></i></span>
-                    <div class="facebook-head d-flex justify-content-end">
-                        <h4 class="face-mention mb-0">@newsitedesign</h4>
-                    </div>
-                    <div class="facebook-detail text-center">
-                        <p class="small-text">
-                            Lorem ipsum is simply <b>@www.google.com</b> dummy text of the typesetting industry.
-                        </p>
-                        <a class="btn face-btn rounded-pill">35K FOLLOWERS</a>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-</section> -->
-<!--Social Connection sec-->
-
 <!--Contact us sec start-->
-
 <section class="contact-sec" id="contact-sec">
     <div class="container">
         <div class="row">
@@ -1135,17 +909,13 @@
                         <div class="col-12 col-md-6 addr-list">
                             <h4 class="heading-text">Slovensko</h4>
                             <ul>
-
-                                    <i class="las la-mobile-alt"></i><a href="tel:{{ own[0].phone1 }}">{{ own[0].phone1 }}</a><br>
-                                    <i class="las la-envelope"></i><a href="mailto:{{ own[0].email1 }}">{{  own[0].email1 }}</a><br>
-                                    <i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">{{ own[0].ulica_dom}} <br>{{ own[0].index }}<br> Žiar nad Hronom</a>
-
-
+                                <li><i class="las la-mobile-alt"></i><a href="tel:{{ own[0].phone1 }}">{{ own[0].phone1 }}</a></li>
+                                <li><i class="las la-envelope"></i><a href="mailto:{{ own[0].email1 }}">{{ own[0].email1 }}</a></li>
+                                <li><i class="las la-map-marker"></i><a target="_blank" href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">{{ own[0].ulica_dom}}, <br>{{ own[0].index }} Žiar nad Hronom</a></li>
 
 {#                                <li><i class="las la-mobile-alt"></i><a href="tel:+421-950-764-554">+421 950 764 554</a></li>#}
 {#                                <li><i class="las la-envelope"></i><a href="mailto:karavan@deilmann.sk">karavan@deilmann.sk</a></li>#}
 {#                                <li><i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">Medzi vodami 216/6, <br>965 01 Žiar nad Hronom</a></li>#}
-
                             </ul>
                         </div>
                     </div>
@@ -1223,6 +993,19 @@
     </div>
 </div>
 <!-- Footer sec End -->
+
+<!-- Cookie sec start-->
+<div id="cookie-agreement" class="cookie-wrap hide">
+    <div class="container">
+        <div class="l-section">
+            <p>Этот сайт использует cookie - <a href="{{ url_for('main.cookie') }}" target="_blank">подробнее</a>. Вы можете изменить настройки cookie в своём браузере.</p>
+        </div>
+        <div class="r-section">
+            <button class="btn btn-link btn-center cookie-close">Принять и закрыть</button>
+        </div>
+    </div>
+</div>
+<!-- Cookie sec End-->
 
 <!-- Modal -->
 <div class="modal fade" id="chooseColor" tabindex="-1" aria-labelledby="chooseColorLabel" aria-hidden="true">
@@ -1316,14 +1099,8 @@
 <script src="{{ url_for('static', filename='vendor/js/jquery.themepunch.tools.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/jquery.themepunch.revolution.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/jquery.cubeportfolio.min.js') }}"></script>
+
 <!-- SLIDER REVOLUTION EXTENSIONS -->
-
-
-
-
-
-
-
 <script src="{{ url_for('static', filename='vendor/js/extensions/revolution.extension.actions.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/extensions/revolution.extension.carousel.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/extensions/revolution.extension.kenburn.min.js') }}"></script>
@@ -1332,26 +1109,19 @@
 <script src="{{ url_for('static', filename='vendor/js/extensions/revolution.extension.navigation.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/extensions/revolution.extension.parallax.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/extensions/revolution.extension.slideanims.min.js') }}"></script>
-
 <script src="{{ url_for('static', filename='vendor/js/extensions/revolution.extension.video.min.js') }}"></script>
-
-<script src="{{ url_for('static', filename='vendor/js/paralaxie.min.js') }}"></script>
-
-
-<script src="{{ url_for('static', filename='vendor/js/carousel.min.js') }}"></script>
-
-
-
+<script src="{{ url_for('static', filename='vendor/js/parallaxie.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/js/owl.carousel.min.js') }}"></script>
+<script src="{{ url_for('static', filename='vendor/js/wow.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/mediaelement-and-player.min.js') }}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnZQx8dUfcrwWwKvN88ue-9N3QqIzeqSg"></script>
 
-
 <script src="{{ url_for('static', filename='agency/js/calculator.js') }}"></script>
-<script src="{{ url_for('static', filename='agency/js/contact-form.js') }}"></script>
-
-
+{#<script src="{{ url_for('static', filename='agency/js/contact-form.js') }}"></script>#}
 <script src="{{ url_for('static', filename='agency/js/map.js') }}"></script>
-
 <script src="{{ url_for('static', filename='agency/js/script.js') }}"></script>
+<script src="{{ url_for('static', filename='agency/js/cookie-plugin.js') }}"></script>
+<script src="{{ url_for('static', filename='agency/js/agree-cookie.js') }}"></script>
+
 </body>
 </html>
