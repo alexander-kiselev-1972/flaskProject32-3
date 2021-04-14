@@ -4,13 +4,16 @@ for (let i = 0; i < caravans.length; i++) {
     caravans[i].addEventListener('click', function (event) {
         let caravan_price = caravans[i].parentNode.querySelector('span.p-price');
         let base_price = parseInt(caravan_price.innerText);
+        let price_input = caravans[i].querySelector("input[name='price']");
 
         if (event.target.tagName.toLowerCase() === 'input') {
 
             if (event.target.type === 'checkbox') {
                 if (event.target.checked === true) {
+                    event.target.value = 'on';
                     base_price += parseInt(event.target.dataset.price);
                 } else {
+                    event.target.value = 'off';
                     base_price -= parseInt(event.target.dataset.price);
                 }
                 caravan_price.innerText = base_price;
@@ -21,29 +24,31 @@ for (let i = 0; i < caravans.length; i++) {
                     if (event.target.checked === true) {
 
                         if (event.target.value === 'with-chassis') {
-                            if (caravans[i].querySelector("input[name='parking-brake']").checked === true) {
-                                base_price += parseInt(event.target.dataset.price) + parseInt(caravans[i].querySelector("input[name='parking-brake']").dataset.price);
+                            if (caravans[i].querySelector("input[name='parking_brake']").checked === true) {
+                                base_price += parseInt(event.target.dataset.price) + parseInt(caravans[i].querySelector("input[name='parking_brake']").dataset.price);
                             } else {
                                 base_price += parseInt(event.target.dataset.price);
                             }
-                            caravans[i].querySelector("input[name='parking-brake']").removeAttribute('disabled');
+                            caravans[i].querySelector("input[name='parking_brake']").removeAttribute('disabled');
                         }
 
                         if (event.target.value === 'no-chassis') {
-                            if (caravans[i].querySelector("input[name='parking-brake']").checked === true) {
-                                base_price = base_price - parseInt(caravans[i].querySelector("input[name='parking-brake']").dataset.price) - parseInt(caravans[i].querySelector("input[value='with-chassis']").dataset.price);
+                            if (caravans[i].querySelector("input[name='parking_brake']").checked === true) {
+                                base_price = base_price - parseInt(caravans[i].querySelector("input[name='parking_brake']").dataset.price) - parseInt(caravans[i].querySelector("input[value='with-chassis']").dataset.price);
                             } else {
                                 base_price -= parseInt(caravans[i].querySelector("input[value='with-chassis']").dataset.price);
                             }
-                            caravans[i].querySelector("input[name='parking-brake']").setAttribute('disabled', 'true');
+                            caravans[i].querySelector("input[name='parking_brake']").setAttribute('disabled', 'true');
                         }
 
                     }
                     caravan_price.innerText = base_price;
+                    price_input.value = base_price;
                 });
             }
 
         }
+        price_input.value = base_price;
 
         if (event.target.tagName.toLowerCase() === 'button') {
 
@@ -66,10 +71,11 @@ for (let i = 0; i < caravans.length; i++) {
                                     let confirm = document.querySelector('#chooseColor .modal-footer button');
                                     let id_modal = confirm.getAttribute('data-id');
 
-                                    let inputColor = caravans[id_modal].querySelector("input[type='hidden']");
+                                    let inputColor = caravans[id_modal].querySelector("input[name='color']");
                                     let buttonColor = caravans[id_modal].querySelector('button');
 
                                     confirm.addEventListener('click', function () {
+                                        console.log(inputColor);
                                         inputColor.value = event.target.value;
                                         buttonColor.innerText = 'Color: ' + color_name;
                                     });

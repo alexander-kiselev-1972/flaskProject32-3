@@ -1,9 +1,7 @@
-from flask_wtf import FlaskForm, Form
-from wtforms import StringField, SubmitField, TextAreaField, Form, validators, RadioField
-from wtforms.validators import DataRequired, Email, Length, Regexp
+from flask_wtf import FlaskForm
+from wtforms import StringField, SubmitField, TextAreaField, RadioField, BooleanField, HiddenField
+from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError
 from ..models import User
-from wtforms import ValidationError
-
 
 
 class NameForm(FlaskForm):
@@ -25,8 +23,23 @@ class LeaveMessage(FlaskForm):
     message = TextAreaField('Message', validators=[DataRequired()])
     submit = SubmitField('Submit')
 
-class price_form(FlaskForm):
-    heater = RadioField('Heater', validators=[DataRequired()])
+
+class BuyCaravanForm(FlaskForm):
+    csrf_token = HiddenField()
+    heater = BooleanField('Heater')
+    hatch_fan = BooleanField('Roof hatch fan')
+    caravan_cover = BooleanField('Caravan cover')
+    support_legs = BooleanField('Trailer support legs')
+    roof_rack = BooleanField('Roof rack cross bars<')
+    spare_tire = BooleanField('Spare tire')
+    color = HiddenField('Color')
+    chassis = RadioField('Chassis', choices=[('no-chassis', 'Without chassis'), ('with-chassis', 'With chassis')])
+    parking_brake = BooleanField('With parking brake')
+    price = HiddenField()
+    model_id = HiddenField()
+    submit = SubmitField('Купить')
 
 
-
+class CheckoutForm(FlaskForm):
+    heater = BooleanField('Heater')
+    submit = SubmitField('Заказать')

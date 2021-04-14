@@ -1,9 +1,9 @@
 from flask import render_template, redirect, url_for, flash, request
 from . import main
 from ..email import send_email, send_email2
-from ..models import User, Menu, Owner, Messages, Models
+from ..models import User, Menu, Owner, Messages, Models, Orders
 from app import db
-from .forms import NameForm, Menu_create, LeaveMessage
+from .forms import NameForm, Menu_create, LeaveMessage, BuyCaravanForm, CheckoutForm
 from sqlalchemy.exc import IntegrityError
 import json
 import time
@@ -82,6 +82,7 @@ def index():
     own = Owner.query.all()
     models = Models.query.all()
     form = LeaveMessage()
+    form_buy_caravan = BuyCaravanForm()
 
     if form.validate_on_submit():
 
@@ -97,7 +98,8 @@ def index():
             db.session.commit()
 
             send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
-                   'mail/new_user', user=form.first_name.data, email=form.email.data, user_subject=form.subject.data, user_message=form.message.data )
+                       'mail/new_user', user=form.first_name.data, email=form.email.data,
+                       user_subject=form.subject.data, user_message=form.message.data)
             flash("your messeges for as send to email")
             form.first_name.data = ''
             form.last_name.data = ''
@@ -123,7 +125,8 @@ def index():
             db.session.commit()
 
             send_email('deilmann.sro@gmail.com', 'Confirm Your Account',
-                       'mail/new_user', user=form.first_name.data, user_subject=form.subject.data, user_message=form.message.data)
+                       'mail/new_user', user=form.first_name.data, user_subject=form.subject.data,
+                       user_message=form.message.data)
             flash("your messeges for as send to email")
             form.first_name.data = ''
             form.last_name.data = ''
@@ -132,21 +135,54 @@ def index():
             form.message.data = ''
             return redirect(url_for('main.index'))
 
-    return render_template('caravan/index.html', form=form, own=own, models=models)
+    if form_buy_caravan.validate_on_submit():
+        model_id = request.form.get('model_id')
+        options = ''
+        if form_buy_caravan.heater.data: options += 'heater'
+        if form_buy_caravan.hatch_fan.data: options += '&hatch_fan'
+        if form_buy_caravan.caravan_cover.data: options += '&caravan_cover'
+        if form_buy_caravan.support_legs.data: options += '&support_legs'
+        if form_buy_caravan.roof_rack.data: options += '&roof_rack'
+        if form_buy_caravan.chassis.data == 'no-chassis':
+            options += '&no-chassis'
+        else:
+            options += '&with-chassis'
+            if form_buy_caravan.parking_brake.data: options += '&parking_brake'
+            if form_buy_caravan.spare_tire.data: options += '&spare_tire'
+        if form_buy_caravan.color.data: options += '&color=' + form_buy_caravan.color.data
+
+        return redirect(url_for('main.checkout', model_id=model_id,
+                                # heater=form_buy_caravan.heater.data,
+                                # fan=form_buy_caravan.hatch_fan.data,
+                                # cover=form_buy_caravan.caravan_cover.data,
+                                options=options))
+
+    return render_template('caravan/index.html', form=form, own=own, models=models, form_caravan=form_buy_caravan)
 
 
+@main.route("/checkout/<int:model_id>", methods=['GET', 'POST'])
+def checkout(model_id):
+    model = Models.query.get_or_404(model_id)
+    form_checkout = BuyCaravanForm()
+    if form_checkout.validate_on_submit():
+        # create order
+        order = form_checkout.heater.data
+        flash('Заказ отправлен', 'success')
+        return redirect(url_for('index'))
+    elif request.method == 'GET':
+        # data_request_2 = {}
+        # if request.args.get('heater') == 'True': data_request['heater'] = True
+        # if request.args.get('fan') == 'True': data_request['hatch_fan'] = True
+        # if request.args.get('cover') == 'True': data_request['caravan_cover'] = True
+        if request.args.get('options'): str_request = request.args.get('options')
+        data_request = str_request.split('&')
 
-    # <div class="col-12">{{ form.submit(class="btn anim-btn rounded-pill user-contact", id="submit",  type="submit", value="Submit") }}</div>#}
-@main.route("/order", methods=['GET', 'POST'])
-def order():
-    data_form = request.form
-    return render_template('caravan/order.html', data_form=data_form)
+    return render_template('caravan/order.html', model=model, form=form_checkout, data_request=data_request, title='Checkout')
 
 
 @main.route('/cookie')
 def cookie():
     return render_template('cookie.html')
-
 
 #
 # @main.route('/user/<name>')
