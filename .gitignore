@@ -1,5 +1,6 @@
 /venv/
 /migrations/
+/app/__pycache__/
 *.pyc
 *.pem
 *.pub
