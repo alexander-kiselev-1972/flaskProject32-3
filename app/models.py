@@ -339,7 +339,7 @@ class Tank(db.Model):
     tank_description = db.Column(db.Text)
     tank_volume = db.Column(db.Integer)
     album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
-    model = db.relationship('ModelSetings', backref='model')
+    model = db.relationship('ModelSettings', backref='model')
 
     def __repr__(self):
         return self.tank_name
@@ -353,7 +353,7 @@ class LightCollection(db.Model):
     light_coll_description = db.Column(db.Text)
     album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
     light = db.relationship('Light', backref='light collections')
-    #models = db.relationship('ModelSetings', backref='light')
+    #models = db.relationship('ModelSettings', backref='light')
 
     def __repr__(self):
         return self.light_coll_name
@@ -479,14 +479,15 @@ class Heater(db.Model):
     def __repr__(self):
         return self.heater_name
 
-#модели
+
+# модели
 class Models(db.Model):
-    __tablename__='models'
+    __tablename__ = 'models'
     models_id = db.Column(db.Integer, primary_key=True)
     models_name = db.Column(db.String(80), unique=True)
     models_description = db.Column(db.Text)
-    model_settings_id = db.Column(db.Integer, db.ForeignKey('model_setings.model_setings_id'))
-    model_settings = db.relationship('ModelSetings', backref='model settings')
+    models_price = db.Column(db.Integer)
+    model_settings = db.relationship('ModelSettings', backref='model settings')
 
     album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
     css_class = db.Column(db.String(256))
@@ -495,9 +496,11 @@ class Models(db.Model):
         return self.models_name
 
 
-class ModelSetings(db.Model):
-    __tablename__='model_setings'
-    model_setings_id = db.Column(db.Integer, primary_key=True)
+class ModelSettings(db.Model):
+    __tablename__ = 'model_settings'
+    model_settings_id = db.Column(db.Integer, primary_key=True)
+
+    model_id = db.Column(db.Integer, db.ForeignKey('models.models_id'))
 
     heater_id = db.Column(db.Integer, db.ForeignKey('heater.heater_id'))
     heater = db.relationship('Heater', backref='heater')
@@ -558,31 +561,23 @@ class ModelSetings(db.Model):
     warming_id = db.Column(db.Integer, db.ForeignKey('warming.warming_id'))
     warming = db.relationship('Warming', backref='warmings')
 
+    def __repr__(self):
+        return self.model_settings_id
 
+
+# заказ
+class Orders(db.Model):
+    __tablename__ = 'orders'
+    order_id = db.Column(db.Integer, primary_key=True)
+
+    model_settings_id = db.Column(db.Integer, db.ForeignKey('model_settings.model_settings_id'))
+    model_settings = db.relationship('ModelSettings', backref='model-settings')
+
+    user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
+    user = db.relationship('User', backref='user')
 
     def __repr__(self):
-        return self.model_setings_id
-
-
-
-
-#заказ
-# class Orders(db.Model):
-#     __tablename__='orders'
-#     order_id = db.Column(db.Integer, primary_key=True)
-#
-#     model_id = db.Column(db.Integer, db.ForeignKey('models.models_id'))
-#     model = db.relationship('Models', backref='model_order')
-#
-#     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
-#     user = db.relationship('User', backref='user')
-#
-#
-#     def __repr__(self):
-#         return self.model_id
-
-
-
+        return self.model_id
 
 
 dict_models = {'foto_album':FotoAlbum,
@@ -615,5 +610,5 @@ dict_models = {'foto_album':FotoAlbum,
                'mosquito_net':MosquitoNet,
                'heater':Heater,
                'models':Models,
-               'models_settings':ModelSetings}
+               'models_settings':ModelSettings}
 

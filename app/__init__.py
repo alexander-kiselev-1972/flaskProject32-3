@@ -19,6 +19,7 @@ login_manager.login_view = 'auth.login'
 
 def create_app(config_name):
     app = Flask(__name__)
+    app.config['SECRET_KEY'] = 'UBSGz3-jt4GuSvF32nSbhQe-GQFkHG7oK4ZpbVY7pm4'
     app.config.from_object(config[config_name])
     config[config_name].init_app(app)
 

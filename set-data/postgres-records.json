@@ -10,23 +10,26 @@
   "phone2": "+421 950 764 554",
   "phone3": "+421 950 764 554",
   "icho": "1234",
-  "ulica_dom": "Medzi Vodami 216/6",
+  "ulica_dom": "Medzi Vodami 216/",
   "index": "965 01",
   "text": "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard."
   },
   "models":[{
     "models_id": "1",
-    "models_name": "VELES",
+    "models_name": "BASE",
+    "models_price": "8000",
     "css_class": "pricing-card wow fadeInLeft"
   },
     {
     "models_id": "2",
-    "models_name": "ENISEY",
+    "models_name": "LUX",
+    "models_price": "12500",
     "css_class": "pricing-card active wow fadeInUp"
   },
   {
     "models_id": "3",
-    "models_name": "URAL",
+    "models_name": "STANDART",
+    "models_price": "9500",
     "css_class": "pricing-card wow fadeInRight"
   }]
 
