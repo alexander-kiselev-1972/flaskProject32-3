@@ -1,0 +1,33 @@
+{
+  "own": {
+
+  "id": "1",
+  "name": "Deilmann s.r.o.",
+  "email1": "deilmann.sro@gmail.com",
+  "email2": "karavan@deilmann.sk",
+  "email3": "email@email.it",
+  "phone1": "+421 950 764 554",
+  "phone2": "+421 950 764 554",
+  "phone3": "+421 950 764 554",
+  "icho": "1234",
+  "ulica_dom": "Medzi Vodami 216/6",
+  "index": "965 01",
+  "text": "Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard."
+  },
+  "models":[{
+    "models_id": "1",
+    "models_name": "VELES",
+    "css_class": "pricing-card wow fadeInLeft"
+  },
+    {
+    "models_id": "2",
+    "models_name": "ENISEY",
+    "css_class": "pricing-card active wow fadeInUp"
+  },
+  {
+    "models_id": "3",
+    "models_name": "URAL",
+    "css_class": "pricing-card wow fadeInRight"
+  }]
+
+}
