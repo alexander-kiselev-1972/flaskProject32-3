@@ -1613,13 +1613,14 @@ header .broad-nav .navbar .nav-item:last-child:after {
     width: 100%;
 }
 .our-services .tab-content .tab-des{
-    padding-right: 30px;
-    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
 }
 .our-services .tab-content .tab-des .tab-num{
     font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-    font-size: 48px;
+    font-size: 40px;
     color: #e4e4e4;
     margin-bottom: 20px;
     display: inline-block;
