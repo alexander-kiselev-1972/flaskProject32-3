@@ -11,9 +11,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="DEILMANN s.r.o.">
     <!-- description -->
-    <meta name="description" content="">
+    <meta name="description" content="Kompaktný multifunkčný mini caravan – toto je malý mobilný dom, ideálny na pohodlnú rekreáciu v prírode. Vhodný pre rybárov, poľovníkov a na cestovanie. Vďaka konštrukcii modulu, bude vo vnútri teplo aj pri -30°C a príjemne aj pri +30°C. Možnosť výberu modelu korpusu, konfigurácie a ďalších komponentov.">
     <!-- keywords -->
-    <meta name="keywords" content="">
+    <meta name="keywords" content="karavan, caravan, camper, camper trailer, travel trailer, towed trailer, кемпер, drop-trailer, teardrop, obytný príves, deilmann, cestovanie, rybárstvo, poľovnictvo, rekreácia, подорожі, риболовля, полювання, відпочинок, путешествия, рыбалка, охота, отдых, travel, fishing, hunting, recreation, Reisen, Angeln, Jagen, Erholung, Wohnwagen">
     <!-- Page Title -->
     <title>Obytné prívesy | DEILMANN s.r.o.</title>
     <!-- Favicon -->
@@ -64,15 +64,15 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-6 mt-auto mb-auto d-none d-lg-block">
-                    <h4 class="top-text">Мы продаем самые лучшие кемперы!</h4>
+                    <h4 class="top-text">Ponúkame vám kompaktné multifunkčné mini karavany!</h4>
                 </div>
                 <div class="col-12 col-lg-6 mt-auto mb-auto">
                     <ul class="top-detail d-block d-lg-flex justify-content-center justify-content-lg-end">
-                        <li class="d-none d-lg-block"><span><i class="la la-mobile"></i></span><a href="tel:+421-950-764-554">{{ own[0].phone1 }}</a></li>
+                        <li class="d-none d-lg-block"><span><i class="la la-mobile"></i></span><a href="tel:{{ own[0].phone2 }}">{{ own[0].phone1 }}</a></li>
                         <li class="d-none d-lg-block"><span><i class="la la-envelope"></i></span><a href="mailto:{{ own[0].email2 }}">{{ own[0].email2 }}</a></li>
                         <li class="social-links">
                             <span class="fb"><a href="#"><i class="la la-facebook-f"></i></a></span>
-                            <span class="twit"><a href="#"><i class="la la-twitter"></i></a></span>
+{#                            <span class="twit"><a href="#"><i class="la la-twitter"></i></a></span>#}
                             <span class="insta"><a href="#"><i class="la la-instagram"></i></a></span>
                         </li>
                     </ul>
@@ -92,26 +92,26 @@
                <div class="main-nav collapse navbar-collapse d-flex">
                    <ul class="navbar-nav left-nav d-flex">
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#home">Home</a>
+                           <a class="nav-link scroll" href="#home">Domov</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#about-sec">О КЕМПЕРАХ</a>
+                           <a class="nav-link scroll" href="#about-sec">O karavanoch</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#company-portfolio-section">ФОТОГАЛЕРЕЯ</a>
+                           <a class="nav-link scroll" href="#company-portfolio-section">Fotogaléria</a>
                        </li>
                    </ul>
                    <a class="navbar-brand standard-logo" href="/"><img src="{{ url_for('static', filename="agency/images/logo.png")}}" alt="logo"></a>
                    <a class="navbar-brand fixed-logo" href="/"><img src="{{ url_for('static', filename="agency/images/logo-3.png")}}" alt="logo"></a>
                    <ul class="navbar-nav right-nav d-flex  ml-auto">
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#configuration">КОМПЛЕКТАЦИИ</a>
+                           <a class="nav-link scroll" href="#configuration">Výber modulu</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#pricing-sec">ДОПОЛНЕНИЯ</a>
+                           <a class="nav-link scroll" href="#pricing-sec">Doplnky</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#contact-sec">КОНТАКТЫ</a>
+                           <a class="nav-link scroll" href="#contact-sec">Kontakt</a>
                        </li>
                    </ul>
                </div>
@@ -129,22 +129,22 @@
                     <div class="main-nav collapse navbar-collapse d-flex justify-content-center align-items-center">
                         <ul class="navbar-nav text-center">
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#home">Home</a>
+                                <a class="nav-link scroll" href="#home">Domov</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#about-sec">О КЕМПЕРАХ</a>
+                                <a class="nav-link scroll" href="#about-sec">O karavanoch</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#company-portfolio-section">ФОТГАЛЕРЕЯ</a>
+                                <a class="nav-link scroll" href="#company-portfolio-section">Fotogaléria</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#configuration">КОМПЛЕКТАЦИИ</a>
+                                <a class="nav-link scroll" href="#configuration">Výber modulu</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#pricing-sec">ДОПОЛНЕНИЯ</a>
+                                <a class="nav-link scroll" href="#pricing-sec">Doplnky</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#contact-sec">КОНТАКТЫ</a>
+                                <a class="nav-link scroll" href="#contact-sec">Kontakt</a>
                             </li>
                         </ul>
                     </div>
@@ -164,7 +164,6 @@
                 <li data-index="rs-1" data-transition="slideleft,slideright" data-slotamount="default" data-hideafterloop="0" data-hideslideonmobile="off"  data-easein="default" data-easeout="default" data-masterspeed="1500,1500"  data-thumb="assets/50x50_d6aeb-slide1-org.jpg"  data-rotate="0"  data-saveperformance="off"  data-title="" data-param1="" data-param2="" data-param3="" data-param4="" data-param5="" data-param6="" data-param7="" data-param8="" data-param9="" data-param10="" data-description="">
                     <!-- MAIN IMAGE -->
                     <img src="{{ url_for('static', filename='agency/images/slide1.jpg')}}"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>
-{#                    <img src="agency/images/slide1.jpg"  alt=""  data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat" class="rev-slidebg" data-no-retina>#}
                     <!-- LAYERS -->
 
                     <!-- LAYER NR. 1 -->
@@ -213,7 +212,7 @@
                          data-paddingleft="[0,0,0,0]"
 
                          style="z-index: 6; white-space: nowrap; font-size: 65px; line-height: 65px; font-weight: 700; color: #ffffff; letter-spacing:0;font-family:'Raleway',sans-serif;">
-                        <span class="slider-line-text">В</span> путешествие
+                        <span class="slider-line-text">Na</span> cestovanie
                     </div>
 
                     <!-- LAYER NR. 4 -->
@@ -238,7 +237,7 @@
                          data-paddingleft="[0,0,0,0]"
 
                          style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;">
-                        <p>Возьми свой дом везде с собой!</p>
+                        <p>Vezmite si svoj domov všade so sebou!</p>
                     </div>
 
                     <!-- LAYER NR. 5 -->
@@ -251,7 +250,7 @@
                          data-frames='[{"delay":10,"speed":2000,"frame":"0","from":"y:50px;opacity:0;","to":"o:1;","ease":"Power4.easeInOut"},{"delay":"wait","speed":280,"frame":"999","to":"opacity:0;","ease":"Power3.easeInOut"},{"frame":"hover","speed":"500","ease":"Linear.ease","to":"o:1;rX:0;rY:0;rZ:0;z:0;"}]'
                          data-textAlign="['center','center','center','center']"
                          style="z-index: 11; min-width:960px; max-width:960px; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0;font-family:'Raleway',sans-serif;">
-                        <a href="#about-sec" class="btn slider-trans-btn rounded-pill">Узнать больше</a>
+                        <a href="#about-sec" class="btn slider-trans-btn rounded-pill">Čítať viac</a>
                     </div>
                 </li>
                 <!-- SLIDE  -->
@@ -304,9 +303,8 @@
                          data-paddingleft="[0,0,0,0]"
 
                          style="z-index: 6; white-space: nowrap; font-size: 65px; line-height: 65px; font-weight: 700; color: #ffffff; letter-spacing:0;font-family:'Raleway',sans-serif;">
-                        <span class="slider-line-text">На</span> рыбалку
+                        <span class="slider-line-text">Pre</span> rybárov
                     </div>
-
 
                     <!-- LAYER NR. 9 -->
                     <div class="tp-caption   tp-resizeme"
@@ -329,7 +327,9 @@
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
 
-                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;"><p>Сможете добраться даже в самые трудные места.</p></div>
+                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;">
+                        <p>Môžete sa dostať kamkoľvek!</p>
+                    </div>
 
                     <!-- LAYER NR. 10 -->
                     <!-- LAYER NR. 10 -->
@@ -347,7 +347,8 @@
                          data-paddingright="[0,0,0,0]"
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
-                         style="z-index: 11; min-width:960px; max-width:960px;white-space:nowrap;font-size: 12px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0;font-family:'Raleway',sans-serif;"><a href="#configuration" class="btn slider-yellow-btn mr-3 rounded-pill">Выбрать комплектацию</a> <a href="#client-sec" class="btn slider-trans-btn rounded-pill">Отзывы</a>
+                         style="z-index: 11; min-width:960px; max-width:960px;white-space:nowrap;font-size: 12px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0;font-family:'Raleway',sans-serif;">
+                        <a href="#configuration" class="btn slider-yellow-btn mr-3 rounded-pill">Vybrať sadu</a>
                     </div>
 
                 </li>
@@ -400,7 +401,9 @@
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
 
-                         style="z-index: 6; min-width: 242px; max-width: 282px; white-space: nowrap; font-size: 65px; line-height: 81px; font-weight: 700; color: #ffffff; letter-spacing:0;font-family:'Raleway',sans-serif;"><span class="slider-line-text">На</span> <p>охоту</p></div>
+                         style="z-index: 6; min-width: 242px; max-width: 282px; white-space: nowrap; font-size: 65px; line-height: 81px; font-weight: 700; color: #ffffff; letter-spacing:0;font-family:'Raleway',sans-serif;">
+                        <span class="slider-line-text">Pre</span> poľovníkov
+                    </div>
 
                     <!-- LAYER NR. 14 -->
                     <div class="tp-caption   tp-resizeme"
@@ -423,7 +426,9 @@
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
 
-                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;"><p>Комфортно при любой температуре!</p></div>
+                         style="z-index: 8; white-space: nowrap; font-size: 20px; line-height: 22px; font-weight: 300; color: #ffffff; letter-spacing:0;font-family:'Open Sans', sans-serif;;">
+                        <p>Aj na pohodlnú rekreáciu v prírode!</p>
+                    </div>
 
                     <!-- LAYER NR. 15 -->
                     <div class="tp-caption   tp-resizeme"
@@ -441,7 +446,8 @@
                          data-paddingright="[0,0,0,0]"
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
-                         style="z-index: 11; max-width:960px; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0;font-family:'Raleway',sans-serif;"> <a href="#pricing-sec" class="btn slider-yellow-btn rounded-pill">Выбрать дополнения</a>
+                         style="z-index: 11; max-width:960px; white-space: nowrap; font-size: 12px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0;font-family:'Raleway',sans-serif;">
+                        <a href="#pricing-sec" class="btn slider-yellow-btn rounded-pill">Pozrieť doplnky</a>
                     </div>
                 </li>
             </ul>
@@ -461,13 +467,16 @@
                 <div class="about-des-sec wow fadeInLeft">
                     <div class="ex-detail">
                         <h4 class="large-heading">
-                            <span class="heading-1">Кемпер -</span>
-                            <span class="heading-2">это</span>
+                            <span class="heading-1">Mini karavan – </span>
+                            <span class="heading-2">to je</span>
                         </h4>
-                        <span class="fly-text">О кемперах</span>
+                        <span class="fly-text">O karavanoch</span>
                     </div>
                     <p class="small-text text-center text-lg-left">
-                        Lorem ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since. Lorem Ipsum has been the industry’s standard dummy text ever since. galley of type to a make type specimen book.
+                        malý mobilný dom, ideálny na pohodlnú rekreáciu v prírode. Vhodný pre rybárov, poľovníkov a na
+                        cestovanie. Vyrobený v konfigurácii prívesu „teardrop“, kde miesto na spanie a kuchynský modul
+                        sú umiestnené v samostatných priehradkách. Izolované sú steny, strop a podlaha. Najväčšia
+                        prípustná celková hmotnosť prívesu nepresahuje 750 kg.
                     </p>
                 </div>
             </div>
@@ -480,31 +489,29 @@
         </div>
         <div class="row text-center">
             <div class="col-12 col-md-6 col-lg-4 about-media wow fadeInUp">
-                   <span class="about-icon">
-                       <i class="fas fa-cloud-sun-rain"></i>
-                   </span>
-                   <h4 class="small-heading">В любую погоду</h4>
-                    <span class="ex-line"></span>
-                   <p class="small-text">Благодаря конструкции прицепа, в нем будет тепло в -30 и прохладно в +30.</p>
+                <span class="about-icon">
+                    <i class="fas fa-cloud-sun-rain"></i>
+                </span>
+                <h4 class="small-heading">Za každého počasia v lete aj v zime</h4>
+                <span class="ex-line"></span>
+                <p class="small-text">Vo vnútri modulu bude teplo aj pri -30°C a príjemne aj pri +30°C.</p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 about-media wow fadeInUp">
-                   <span class="about-icon">
-                       <i class="la la-globe"></i>
-                   </span>
-                   <h4 class="small-heading">По любым дорогам</h4>
-                    <span class="ex-line"></span>
-                   <p class="small-text">Легко доберетесь по бездорожью в любое место.</p>
-
+                <span class="about-icon">
+                    <i class="la la-globe"></i>
+                </span>
+                <h4 class="small-heading">Na akýchkoľvek cestách</h4>
+                <span class="ex-line"></span>
+                <p class="small-text">Ľahko sa dostanete kamkoľvek mimo cesty.</p>
             </div>
             <div class="col-12 col-md-6 col-lg-4 about-media wow fadeInUp">
-                   <span class="about-icon">
-                       <i class="la la-bold"></i>
-                   </span>
-                   <h4 class="small-heading">Достаточно кат. В</h4>
-                    <span class="ex-line"></span>
-                   <p class="small-text">Не надо дополнительной категории ВЕ, достаточно только категории В и хватает машины на 50 л.с.</p>
+                <span class="about-icon">
+                    <i class="la la-bold"></i>
+                </span>
+                <h4 class="small-heading">Vodičský preukaz kategórie „B“</h4>
+                <span class="ex-line"></span>
+                <p class="small-text">Potrebujete iba VP kat. „B“ a auto s výkonom motora vyšším ako 37 kW.</p>
             </div>
-
         </div>
     </div>
 </section>
@@ -518,22 +525,23 @@
                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="300ms">
                     <div class="ex-detail">
                         <h4 class="large-heading">
-                            <span class="heading-1">Наша</span>
-                            <span class="heading-2">Фотогалерея</span>
+                            <span class="heading-1">Fotky</span>
+                            <span class="heading-2">našich karavanov</span>
                         </h4>
-                        <span class="fly-text">Фотогалерея</span>
+                        <span class="fly-text">Fotogaléria</span>
                     </div>
                 </div>
                 <div class="col-md-12 pt-5">
                     <div id="js-filters-mosaic" class="cbp-l-filters-button wow fadeInUp" data-wow-delay="350ms">
-                        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"><p>Все</p></div>
+                        <div data-filter="*" class="cbp-filter-item-active cbp-filter-item"><p>Všetky</p></div>
                         <div data-filter=".veles" class="cbp-filter-item"><p>VELES</p></div>
                         <div data-filter=".yenisei" class="cbp-filter-item"><p>YENISEI</p></div>
                         <div data-filter=".ural" class="cbp-filter-item"><p>{{ rad(own) }}</p></div>
-                        <div data-filter=".additions" class="cbp-filter-item"><p>Дополнения</p></div>
+                        <div data-filter=".additions" class="cbp-filter-item"><p>Doplnky</p></div>
                     </div>
 
                     <div id="js-grid-mosaic" class="cbp cbp-l-grid-mosaic">
+
                         <div class="cbp-item veles">
                             <a href="{{ url_for('static', filename='agency/images/p1.jpg') }}" class="cbp-caption cbp-lightbox" data-title="Workout Buddy<br>by Tiberiu Neamu">
                                 <div class="cbp-caption-defaultWrap">
@@ -678,12 +686,11 @@
                     <div id="js-loadMore-lightbox-gallery" class="cbp-l-loadMore-button wow fadeInUp" data-wow-delay="650ms">
                         <div class="row portfolio-foot-detail">
                             <div class="col-6 col-lg-3 offset-lg-6 text-left pl-4">
-                                <span class="p-text">We've Completed More Then</span>
-                                <h4 class="p-num">530</h4>
-                                <span class="p-text">Projects for Our amazing Clients</span>
+                                <span class="p-text">Fotky od výrobcu a našich</span>
+                                <span class="p-text">spokojných zákazníkov</span>
                             </div>
                             <div class="col-6 col-lg-3  d-flex justify-content-end align-items-center">
-                                <a href="{{ url_for('static', filename='agency/images/p5.jpg') }}" class="btn anim-btn rounded-pill cbp-caption cbp-lightbox">Смотреть все фото<span></span><span></span><span></span><span></span></a>
+                                <a href="{{ url_for('static', filename='agency/images/p5.jpg') }}" class="btn anim-btn rounded-pill cbp-caption cbp-lightbox">Zobraziť všetky fotografie<span></span><span></span><span></span><span></span></a>
                             </div>
                         </div>
                     </div>
@@ -701,18 +708,18 @@
         <div class="row text-center text-md-left">
             <div class="col-12 service-text text-center">
                 <div class="our-heading">
-                    <span class="heading-title">Выбери свой вариант</span>
-                    <h4 class="heading-text">Варианты комплектации</h4>
+                    <span class="heading-title">Vyberte si sadu modulu</span>
+                    <h4 class="heading-text">Naše karavany sú k dispozícii v týchto sadách</h4>
                 </div>
                 <ul class="nav nav-pills justify-content-center mb-md-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#p1" role="tab"  aria-selected="true"><span>БАЗОВАЯ</span></a>
+                        <a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#p1" role="tab"  aria-selected="true"><span>ZÁKLADNÁ</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#p2" role="tab" aria-selected="false"><span>КОМФОРТ</span></a>
+                        <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#p2" role="tab" aria-selected="false"><span>KOMFORT</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#p3" role="tab" aria-selected="false"><span>ЛЮКС</span></a>
+                        <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#p3" role="tab" aria-selected="false"><span>LUX</span></a>
                     </li>
                 </ul>
             </div>
@@ -722,14 +729,22 @@
                     <div class="tab-pane fade show active" id="p1" role="tabpanel" aria-labelledby="pills-1-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service1" src="{{ url_for('static', filename='agency/images/service1.png') }}">
+                                <img alt="service1" src="{{ url_for('static', filename='agency/images/sada_zakladna.jpg') }}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
-                                <span class="tab-num">01</span>
-                                <h4 class="tab-title">Your speacialized team move with  success.</h4>
-                                <p class="tab-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                <button class="btn anim-btn rounded-pill">GET IN TOUCH
+                                <span class="tab-num">Základná</span>
+                                <h4 class="tab-title">Modulové vybavenie:</h4>
+                                <p class="tab-text">
+                                    - vonkajšia krytina strechy, podlahy a bokov - hliníkový kompozit;<br>
+                                    - hrúbka izolácie stien a vnút. priečok je 20mm; stropu – 30, a podlahy - 50mm;<br>
+                                    - vnútorný náter - lakovaná preglejka; rámovanie - hliníkový profil;<br>
+                                    - 2 skrinky s textilnými závesmi a výklenkom pre mobilné zariadenia;<br>
+                                    - závesný zadný kryt modulu; - vnútorné vetranie;<br>
+                                    - skladovacia skrinka v kuchyni; - technické oddelenie;<br>
+                                    - farba modulu je na výber.
+                                </p>
+                                <button class="btn anim-btn rounded-pill">VYBRAŤ DOPLNKY
                                     <span></span><span></span><span></span><span></span>
                                 </button>
                                 </div>
@@ -739,14 +754,22 @@
                     <div class="tab-pane fade show" id="p2" role="tabpanel" aria-labelledby="pills-2-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service2" src="{{ url_for('static', filename='agency/images/service2.png')}}">
+                                <img alt="service2" src="{{ url_for('static', filename='agency/images/sada_komfort.png')}}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
-                                    <span class="tab-num">02</span>
-                                    <h4 class="tab-title">Your speacialized team move with  success.</h4>
-                                    <p class="tab-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                    <button class="btn anim-btn rounded-pill">GET IN TOUCH
+                                    <span class="tab-num">Komfort</span>
+                                    <h4 class="tab-title">Modulové vybavenie:</h4>
+                                    <p class="tab-text">
+                                        - základná sada;<br>
+                                        - matrac vo veľkosti 2000 x 1400mm (penová guma 8cm, prírodný ľan), ktorý je možné zložiť aj ako pohovku;<br>
+                                        - drez, elektrický kohútik, čerpadlo, 30l nádrž na čistú vodu, 30l nádrž na špinavú vodu;<br>
+                                        - kuchynský stojan;<br>
+                                        - osvetlenie obytného priestoru (1 lampa) a kuchynského priestoru (1 lampa);<br>
+                                        - polica s boxami na topánky v obytnom priestore;<br>
+                                        - batéria 7Ah.
+                                    </p>
+                                    <button class="btn anim-btn rounded-pill">VYBRAŤ DOPLNKY
                                         <span></span><span></span><span></span><span></span>
                                     </button>
                                 </div>
@@ -756,14 +779,22 @@
                     <div class="tab-pane fade show" id="p3" role="tabpanel" aria-labelledby="pills-3-tab">
                         <div class="row">
                             <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service3" src="{{ url_for('static', filename='agency/images/service3.png') }}">
+                                <img alt="service3" src="{{ url_for('static', filename='agency/images/sada_lux.png') }}">
                             </div>
                             <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
                                 <div class="tab-des">
-                                    <span class="tab-num">03</span>
-                                    <h4 class="tab-title">Your speacialized team move with  success.</h4>
-                                    <p class="tab-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                    <button class="btn anim-btn rounded-pill">GET IN TOUCH
+                                    <span class="tab-num">Lux</span>
+                                    <h4 class="tab-title">Modulové vybavenie:</h4>
+                                    <p class="tab-text">
+                                        - sada "Komfort";<br>
+                                        - zásuvky 12V (1ks v kuchyni, 1ks v obytnom priestore);<br>
+                                        - zásuvky 220V (1ks v kuchyni, 1ks v obytnom priestore);<br>
+                                        - nútené vnútorné vetranie;<br>
+                                        - solárny panel + regulátor;<br>
+                                        - externá zásuvka + nabíjačka batérií;<br>
+                                        - gélová batéria 45Ah (výmena v sade „Komfort“ batérie 7Ah na 45Ah).
+                                    </p>
+                                    <button class="btn anim-btn rounded-pill">VYBRAŤ DOPLNKY
                                         <span></span><span></span><span></span><span></span>
                                     </button>
                                 </div>
@@ -804,8 +835,8 @@
         <div class="row">
             <div class="col-12 text-center">
                 <div class="our-heading">
-                    <span class="heading-title">Гибкие цены</span>
-                    <h4 class="heading-text">Дополнительные опции</h4>
+                    <span class="heading-title">Výber doplnkov</span>
+                    <h4 class="heading-text">Je len na vás aké doplnkové vybavenie si vyberiete</h4>
                 </div>
             </div>
         </div>
@@ -821,7 +852,7 @@
                         </div>
                         <div class="col-12 col-md-6 price-text">
                             <div class="price-img">
-                                <img src="{{ url_for('static', filename='agency/images/p4.jpg') }}" alt="">
+                                <img src="{{ url_for('static', filename='agency/images/' ~ x.models_description) }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -839,12 +870,12 @@
 
                                 {% for radio_chassis in form_caravan.chassis %}
                                     {% if radio_chassis.id == 'chassis-0' %}
-                                        <li><label class="custom-radio">{{ radio_chassis(data_price='1000', checked=true) }}<span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
+                                        <li><label class="custom-radio">{{ radio_chassis() }}<span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
                                     {% else %}
-                                        <li><label class="custom-radio">{{ radio_chassis(data_price='1500') }}<span>With chassis<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
+                                        <li><label class="custom-radio">{{ radio_chassis(data_price='600', checked=true) }}<span>With chassis<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
                                             <ul class="feature-list brake">
-                                                <li><label class="custom-checkbox">{{ form_caravan.parking_brake(data_price='500', disabled=true) }}<span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
-                                                <li><label class="custom-checkbox">{{ form_caravan.spare_tire(data_price='100', disabled=true) }}<span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
+                                                <li><label class="custom-checkbox">{{ form_caravan.parking_brake(data_price='520') }}<span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
+                                                <li><label class="custom-checkbox">{{ form_caravan.spare_tire(data_price='100') }}<span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
                                             </ul>
                                         </li>
                                     {% endif %}
@@ -873,10 +904,10 @@
                 <div class="contact-detail wow fadeInLeft">
                     <div class="ex-detail">
                         <h4 class="large-heading">
-                            <span class="heading-1">Свяжитесь</span>
-                            <span class="heading-2">с нами</span>
+                            <span class="heading-1">Kontaktujte</span>
+                            <span class="heading-2">nás</span>
                         </h4>
-                        <span class="fly-text">КОНТАКТЫ</span>
+                        <span class="fly-text">Kontakt</span>
                     </div>
                     <p class="small-text text-center text-md-left">
                         {{ own[0].text }}
@@ -885,7 +916,7 @@
                         <div class="col-12 col-md-6 addr-list">
                             <h4 class="heading-text">Slovensko</h4>
                             <ul>
-                                <li><i class="las la-mobile-alt"></i><a href="tel:{{ own[0].phone1 }}">{{ own[0].phone1 }}</a></li>
+                                <li><i class="las la-mobile-alt"></i><a href="tel:{{ own[0].phone2 }}">{{ own[0].phone1 }}</a></li>
                                 <li><i class="las la-envelope"></i><a href="mailto:{{ own[0].email1 }}">{{ own[0].email1 }}</a></li>
                                 <li><i class="las la-map-marker"></i><a target="_blank" href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">{{ own[0].ulica_dom}}, <br>{{ own[0].index }} Žiar nad Hronom</a></li>
                             </ul>
