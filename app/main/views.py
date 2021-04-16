@@ -1,4 +1,4 @@
-from flask import render_template, redirect, url_for, flash, request
+from flask import render_template, redirect, url_for, flash, request, session
 from . import main
 from ..email import send_email, send_email2
 from ..models import User, Menu, Owner, Messages, Models, Orders
@@ -150,12 +150,9 @@ def index():
             if form_buy_caravan.parking_brake.data: options += '&parking_brake'
             if form_buy_caravan.spare_tire.data: options += '&spare_tire'
         if form_buy_caravan.color.data: options += '&color=' + form_buy_caravan.color.data
+        session['price'] = form_buy_caravan.price.data
 
-        return redirect(url_for('main.checkout', model_id=model_id,
-                                # heater=form_buy_caravan.heater.data,
-                                # fan=form_buy_caravan.hatch_fan.data,
-                                # cover=form_buy_caravan.caravan_cover.data,
-                                options=options))
+        return redirect(url_for('main.checkout', model_id=model_id, options=options))
 
     return render_template('caravan/index.html', form=form, own=own, models=models, form_caravan=form_buy_caravan)
 
@@ -163,21 +160,21 @@ def index():
 @main.route("/checkout/<int:model_id>", methods=['GET', 'POST'])
 def checkout(model_id):
     model = Models.query.get_or_404(model_id)
-    form_checkout = BuyCaravanForm()
+    form_checkout = CheckoutForm()
+    str_request = request.args.get('options')
+    price = session.get('price')
+
     if form_checkout.validate_on_submit():
         # create order
-        order = form_checkout.heater.data
+        order = Orders()
         flash('Заказ отправлен', 'success')
-        return redirect(url_for('index'))
-    elif request.method == 'GET':
-        # data_request_2 = {}
-        # if request.args.get('heater') == 'True': data_request['heater'] = True
-        # if request.args.get('fan') == 'True': data_request['hatch_fan'] = True
-        # if request.args.get('cover') == 'True': data_request['caravan_cover'] = True
-        if request.args.get('options'): str_request = request.args.get('options')
-        data_request = str_request.split('&')
+        return redirect(url_for('main.index'))
 
-    return render_template('caravan/order.html', model=model, form=form_checkout, data_request=data_request, title='Checkout')
+    # if request.method == 'GET':
+    #     if request.args.get('options'):
+    #         str_request = request.args.get('options')
+
+    return render_template('caravan/order.html', model=model, form=form_checkout, data_request=str_request, price=price, title='Checkout')
 
 
 @main.route('/cookie')

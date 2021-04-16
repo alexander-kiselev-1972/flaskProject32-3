@@ -287,6 +287,7 @@ html{
 .yellow-anim-btn:hover{
     color: #142022;
     border: solid 1px #FFFFFF;
+    background-color: #FFFFFF;
 }
 .anim-btn:hover span ,.yellow-anim-btn:hover span {
     -webkit-transform: translateY(0) scale(3);
@@ -2087,7 +2088,7 @@ header .broad-nav .navbar .nav-item:last-child:after {
 /***********************************/
 
 .pricing-sec{
-    padding-bottom: 120px;
+    padding-top: 120px;
 }
 .pricing-sec .pricing-cards{
     padding-top: 50px;

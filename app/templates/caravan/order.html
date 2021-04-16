@@ -18,15 +18,26 @@
     {% endif %}
     <!-- Favicon -->
     <link rel="icon" href="{{ url_for('static', filename='agency/images/favicon.ico') }}">
+    <!--css links-->
+    <link rel="stylesheet" href="{{ url_for('static', filename= 'vendor/css/bundle.min.css') }}">
     <!-- main style-->
     <link rel="stylesheet" href="{{ url_for('static', filename= 'agency/css/style.css') }}">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
+
+<!--Pricing section start-->
+<section id="pricing-sec" class="pricing-sec">
+    <div class="container">
+        <div class="row pricing-cards">
+            <div class="col-12 col-lg-4 p-card">
+                <div class="pricing-card">
 <h4 class="pricing-heading text-center text-md-left">{{ model.models_name }}</h4>
 <div class="row no-gutters price-info text-center text-md-left">
     <div class="col-12 col-md-6 price-tag">
         <span class="p-icon"><i class="las la-euro-sign"></i></span>
-        <span class="p-price">{{ model.models_price }}</span>
+        <span class="p-price">{{ price }}</span>
     </div>
     <div class="col-12 col-md-6 price-text">
         <div class="price-img">
@@ -34,28 +45,31 @@
         </div>
     </div>
 </div>
+
 <hr>
 {{ data_request }}
 <hr>
+
 <form class="caravan-price" action="" method="post">
     {{ form.csrf_token() }}
+    <input type="hidden" name="checked_options" value="{{ data_request }}">
     <ul class="feature-list">
         <li><label class="custom-checkbox">{{ form.heater(data_price='100') }}<span>Heater<img src="{{ url_for('static', filename='agency/images/heater.png') }}" alt="Heater"></span></label></li>
         <li><label class="custom-checkbox">{{ form.hatch_fan(data_price='200') }}<span>Roof hatch fan<img src="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" alt="Roof hatch fan"></span></label></li>
         <li><label class="custom-checkbox">{{ form.caravan_cover(data_price='300') }}<span>Caravan cover<img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="Caravan cover"></span></label></li>
         <li><label class="custom-checkbox">{{ form.support_legs(data_price='300') }}<span>Trailer support legs<img src="{{ url_for('static', filename='agency/images/support-legs.png') }}" alt="Trailer support legs"></span></label></li>
         <li><label class="custom-checkbox">{{ form.roof_rack(data_price='200') }}<span>Roof rack cross bars<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
-        <li><label class="custom-checkbox">{{ form.spare_tire(data_price='100') }}<span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
         {{ form.color(value='') }}
-        <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="{{ model.models_id - 1 }}">Choose a color</button></li>
+        <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="0">Choose a color</button></li>
 
         {% for radio_chassis in form.chassis %}
             {% if radio_chassis.id == 'chassis-0' %}
-                <li><label class="custom-radio">{{ radio_chassis(data_price='1000', checked=true) }}<span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
+                <li><label class="custom-radio">{{ radio_chassis(data_price='1000') }}<span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
             {% else %}
                 <li><label class="custom-radio">{{ radio_chassis(data_price='1500') }}<span>With chassis<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
                     <ul class="feature-list brake">
-                        <li><label class="custom-checkbox">{{ form.parking_brake(data_price='500', disabled=true) }}<span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
+                        <li><label class="custom-checkbox">{{ form.parking_brake(data_price='500') }}<span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
+                        <li><label class="custom-checkbox">{{ form.spare_tire(data_price='100') }}<span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
                     </ul>
                 </li>
             {% endif %}
@@ -64,8 +78,22 @@
         {{ form.price(value='') }}
         {{ form.model_id(id=model.models_id, value=model.models_id) }}
     </ul>
+    <ul class="feature-list">
+        <li>{{ form.first_name() }}</li>
+        <li>{{ form.last_name() }}</li>
+        <li>{{ form.email() }}</li>
+        <li>{{ form.phone() }}</li>
+        <li>{{ form.billing_address() }}</li>
+        <li>{{ form.type_of_document(placeholder='Passport or ID etc.') }}</li>
+        <li>{{ form.document() }}</li>
+    </ul>
     {{ form.submit() }}
 </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <!-- Footer sec start-->
 <div class="footer-sec" id="footer-sec">
@@ -176,6 +204,7 @@
 </div>
 <!-- Modal sec End-->
 
+<script src="{{ url_for('static', filename='vendor/js/bundle.min.js') }}"></script>
 <script src="{{ url_for('static', filename='agency/js/calculator.js') }}"></script>
 </body>
 </html>
