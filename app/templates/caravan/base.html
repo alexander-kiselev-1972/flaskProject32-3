@@ -105,10 +105,10 @@
                    <a class="navbar-brand fixed-logo" href="/"><img src="{{ url_for('static', filename="agency/images/logo-3.png")}}" alt="logo"></a>
                    <ul class="navbar-nav right-nav d-flex  ml-auto">
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#our-services">МОДЕЛИ</a>
+                           <a class="nav-link scroll" href="#configuration">КОМПЛЕКТАЦИИ</a>
                        </li>
                        <li class="nav-item">
-                           <a class="nav-link scroll" href="#pricing-sec">ЦЕНЫ</a>
+                           <a class="nav-link scroll" href="#pricing-sec">ДОПОЛНЕНИЯ</a>
                        </li>
                        <li class="nav-item">
                            <a class="nav-link scroll" href="#contact-sec">КОНТАКТЫ</a>
@@ -138,10 +138,10 @@
                                 <a class="nav-link scroll" href="#company-portfolio-section">ФОТГАЛЕРЕЯ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#our-services">МОДЕЛИ</a>
+                                <a class="nav-link scroll" href="#configuration">КОМПЛЕКТАЦИИ</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link scroll" href="#pricing-sec">ЦЕНЫ</a>
+                                <a class="nav-link scroll" href="#pricing-sec">ДОПОЛНЕНИЯ</a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link scroll" href="#contact-sec">КОНТАКТЫ</a>
@@ -347,7 +347,7 @@
                          data-paddingright="[0,0,0,0]"
                          data-paddingbottom="[0,0,0,0]"
                          data-paddingleft="[0,0,0,0]"
-                         style="z-index: 11; min-width:960px; max-width:960px;white-space:nowrap;font-size: 12px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0;font-family:'Raleway',sans-serif;"><a href="#our-services" class="btn slider-yellow-btn mr-3 rounded-pill">Смотреть модели</a> <a href="#client-sec" class="btn slider-trans-btn rounded-pill">Отзывы</a>
+                         style="z-index: 11; min-width:960px; max-width:960px;white-space:nowrap;font-size: 12px; line-height: 22px; font-weight: 600; color: #ffffff; letter-spacing: 0;font-family:'Raleway',sans-serif;"><a href="#configuration" class="btn slider-yellow-btn mr-3 rounded-pill">Выбрать комплектацию</a> <a href="#client-sec" class="btn slider-trans-btn rounded-pill">Отзывы</a>
                     </div>
 
                 </li>
@@ -695,27 +695,24 @@
 </section>
 <!--portfolio section end-->
 
-<!--our-Services sec start-->
-<section id="our-services" class="our-services section-padding">
+<!--Configuration sec start-->
+<section id="configuration" class="our-services section-padding">
     <div class="container">
         <div class="row text-center text-md-left">
             <div class="col-12 service-text text-center">
                 <div class="our-heading">
                     <span class="heading-title">Выбери свой вариант</span>
-                    <h4 class="heading-text">Наши Модели</h4>
+                    <h4 class="heading-text">Варианты комплектации</h4>
                 </div>
                 <ul class="nav nav-pills justify-content-center mb-md-3" id="pills-tab" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#p1" role="tab"  aria-selected="true"><span>VELES</span></a>
+                        <a class="nav-link active" id="pills-1-tab" data-toggle="pill" href="#p1" role="tab"  aria-selected="true"><span>БАЗОВАЯ</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#p2" role="tab" aria-selected="false"><span>YENISEI</span></a>
+                        <a class="nav-link" id="pills-2-tab" data-toggle="pill" href="#p2" role="tab" aria-selected="false"><span>КОМФОРТ</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#p3" role="tab" aria-selected="false"><span>URAL</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="pills-4-tab" data-toggle="pill" href="#p4" role="tab" aria-selected="false"><span>SANDTREKKER</span></a>
+                        <a class="nav-link" id="pills-3-tab" data-toggle="pill" href="#p3" role="tab" aria-selected="false"><span>ЛЮКС</span></a>
                     </li>
                 </ul>
             </div>
@@ -738,7 +735,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="tab-pane fade show" id="p2" role="tabpanel" aria-labelledby="pills-2-tab">
                         <div class="row">
@@ -756,7 +752,6 @@
                                 </div>
                             </div>
                         </div>
-
                     </div>
                     <div class="tab-pane fade show" id="p3" role="tabpanel" aria-labelledby="pills-3-tab">
                         <div class="row">
@@ -774,24 +769,6 @@
                                 </div>
                             </div>
                         </div>
-
-                    </div>
-                    <div class="tab-pane fade show" id="p4" role="tabpanel" aria-labelledby="pills-4-tab">
-                        <div class="row">
-                            <div class="col-sm-12 col-md-6 tab-img">
-                                <img alt="service4" src="{{ url_for('static', filename='agency/images/service4.jpg')}}">
-                            </div>
-                            <div class="col-sm-12 col-md-6 tab-detail d-flex align-items-center">
-                                <div class="tab-des">
-                                    <span class="tab-num">04</span>
-                                    <h4 class="tab-title">Your speacialized team move with  success.</h4>
-                                    <p class="tab-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                                    <button class="btn anim-btn rounded-pill">GET IN TOUCH
-                                        <span></span><span></span><span></span><span></span>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
 
                 </div>
@@ -799,7 +776,7 @@
         </div>
     </div>
 </section>
-<!--our-Services sec start-->
+<!--Configuration sec end-->
 
 <!--Quote sec start-->
 <section id="quote-sec" class="quote-sec">
@@ -827,21 +804,17 @@
         <div class="row">
             <div class="col-12 text-center">
                 <div class="our-heading">
-                    <span class="heading-title">Дополнительные опции</span>
-                    <h4 class="heading-text">Гибкие цены</h4>
+                    <span class="heading-title">Гибкие цены</span>
+                    <h4 class="heading-text">Дополнительные опции</h4>
                 </div>
             </div>
         </div>
-
         <div class="row pricing-cards">
             {% for x in models %}
-            <div class="col-12 col-lg-4 p-card">
-
-
-                <div class="{{ x.css_class }}">
-
-                    <h4 class="pricing-heading text-center text-md-left">{{ x.models_name }}</h4>
-                    <div class="row no-gutters price-info text-center text-md-left">
+                <div class="col-12 col-lg-4 p-card">
+                    <div class="{{ x.css_class }}">
+                        <h4 class="pricing-heading text-center text-md-left">{{ x.models_name }}</h4>
+                        <div class="row no-gutters price-info text-center text-md-left">
                         <div class="col-12 col-md-6 price-tag">
                          <span class="p-icon"><i class="las la-euro-sign"></i></span>
                          <span class="p-price">{{ x.models_price }}</span>
@@ -852,51 +825,43 @@
                             </div>
                         </div>
                     </div>
-                   <form class="caravan-price" action="" method="post">
-{#                       {{ form_caravan.hidden_tag() }}#}
-                       {{ form_caravan.csrf_token() }}
-                       <ul class="feature-list">
-                           <li><label class="custom-checkbox">{{ form_caravan.heater(data_price='100') }}<span>Heater<img src="{{ url_for('static', filename='agency/images/heater.png') }}" alt="Heater"></span></label></li>
-{#                           <li><label class="custom-checkbox"><input type="checkbox" name="solar_panel" value="200" data-price="200"><span>Solar panel<img src="{{ url_for('static', filename='agency/images/solar-panel.png') }}" alt="Solar panel"></span></label></li>#}
-                           <li><label class="custom-checkbox">{{ form_caravan.hatch_fan(data_price='200') }}<span>Roof hatch fan<img src="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" alt="Roof hatch fan"></span></label></li>
-                           <li><label class="custom-checkbox">{{ form_caravan.caravan_cover(data_price='300') }}<span>Caravan cover<img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="Caravan cover"></span></label></li>
-                           <li><label class="custom-checkbox">{{ form_caravan.support_legs(data_price='300') }}<span>Trailer support legs<img src="{{ url_for('static', filename='agency/images/support-legs.png') }}" alt="Trailer support legs"></span></label></li>
-                           <li><label class="custom-checkbox">{{ form_caravan.roof_rack(data_price='200') }}<span>Roof rack cross bars<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
-                           <li><label class="custom-checkbox">{{ form_caravan.spare_tire(data_price='100') }}<span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
+                        <form class="caravan-price" action="" method="post">
+                            {{ form_caravan.csrf_token() }}
+                            <ul class="feature-list">
+                                <li><label class="custom-checkbox">{{ form_caravan.heater(data_price='100') }}<span>Heater<img src="{{ url_for('static', filename='agency/images/heater.png') }}" alt="Heater"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.hatch_fan(data_price='200') }}<span>Roof hatch fan<img src="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" alt="Roof hatch fan"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.caravan_cover(data_price='300') }}<span>Caravan cover<img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="Caravan cover"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.support_legs(data_price='300') }}<span>Trailer support legs<img src="{{ url_for('static', filename='agency/images/support-legs.png') }}" alt="Trailer support legs"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.roof_rack(data_price='200') }}<span>Roof rack cross bars<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
 
-                           {{ form_caravan.color(value='') }}
-                           <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="{{ x.models_id - 1 }}">Choose a color</button></li>
+                                {{ form_caravan.color(value='') }}
+                                <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="{{ x.models_id - 1 }}">Choose a color</button></li>
 
-                           {% for radio_chassis in form_caravan.chassis %}
-                               {% if radio_chassis.id == 'chassis-0' %}
-                                   <li><label class="custom-radio">{{ radio_chassis(data_price='1000', checked=true) }}<span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
-                               {% else %}
-                                   <li><label class="custom-radio">{{ radio_chassis(data_price='1500') }}<span>With chassis<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
-                                       <ul class="feature-list brake">
-                                           <li><label class="custom-checkbox">{{ form_caravan.parking_brake(data_price='500', disabled=true) }}<span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
-                                       </ul>
-                                   </li>
-                               {% endif %}
-                           {% endfor %}
+                                {% for radio_chassis in form_caravan.chassis %}
+                                    {% if radio_chassis.id == 'chassis-0' %}
+                                        <li><label class="custom-radio">{{ radio_chassis(data_price='1000', checked=true) }}<span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
+                                    {% else %}
+                                        <li><label class="custom-radio">{{ radio_chassis(data_price='1500') }}<span>With chassis<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
+                                            <ul class="feature-list brake">
+                                                <li><label class="custom-checkbox">{{ form_caravan.parking_brake(data_price='500', disabled=true) }}<span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
+                                                <li><label class="custom-checkbox">{{ form_caravan.spare_tire(data_price='100', disabled=true) }}<span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
+                                            </ul>
+                                        </li>
+                                    {% endif %}
+                                {% endfor %}
 
-                           {{ form_caravan.price(value='') }}
-                           {{ form_caravan.model_id(id='model_id-' ~ x.models_id, value=x.models_id) }}
-                       </ul>
+                                {{ form_caravan.price(value='') }}
+                                {{ form_caravan.model_id(id='model_id-' ~ x.models_id, value=x.models_id) }}
+                            </ul>
 
-                       {{ form_caravan.submit() }}
-                       <a href="#" class="btn yellow-anim-btn rounded-pill w-100"><span></span><span></span><span></span><span></span><span></span>Купить</a>
-                   </form>
+                            {{ form_caravan.submit(class='btn yellow-anim-btn rounded-pill w-100') }}
+                            <a href="#" class="btn yellow-anim-btn rounded-pill w-100"><span></span><span></span><span></span><span></span><span></span>Купить</a>
+                        </form>
+                    </div>
                 </div>
-            </div>
-                       {% endfor %}
-
-
-
-
-
-
-            </div>
+            {% endfor %}
         </div>
+    </div>
 </section>
 <!--Pricing section end-->
 
@@ -923,10 +888,6 @@
                                 <li><i class="las la-mobile-alt"></i><a href="tel:{{ own[0].phone1 }}">{{ own[0].phone1 }}</a></li>
                                 <li><i class="las la-envelope"></i><a href="mailto:{{ own[0].email1 }}">{{ own[0].email1 }}</a></li>
                                 <li><i class="las la-map-marker"></i><a target="_blank" href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">{{ own[0].ulica_dom}}, <br>{{ own[0].index }} Žiar nad Hronom</a></li>
-
-{#                                <li><i class="las la-mobile-alt"></i><a href="tel:+421-950-764-554">+421 950 764 554</a></li>#}
-{#                                <li><i class="las la-envelope"></i><a href="mailto:karavan@deilmann.sk">karavan@deilmann.sk</a></li>#}
-{#                                <li><i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">Medzi vodami 216/6, <br>965 01 Žiar nad Hronom</a></li>#}
                             </ul>
                         </div>
                     </div>
@@ -934,7 +895,7 @@
             </div>
             <div class="col-12 col-lg-6 contact-box text-center text-md-left">
                 <div class="c-box wow fadeInRight">
-                <h4 class="small-heading">Leave Message</h4>
+                    <h4 class="small-heading">Leave Message</h4>
                     {% block forma %}
 
 {#                <form class="contact-form" id="contact-form" method="post">#}
@@ -964,16 +925,12 @@
 {#                    </div>#}
 {#                </form>#}
 
-                                                             {% endblock %}
-
+                    {% endblock %}
                 </div>
-
             </div>
-
         </div>
     </div>
 </section>
-
 <!--Contact Us sec end-->
 
 <!-- Map sec start-->
@@ -1019,7 +976,7 @@
 </div>
 <!-- Cookie sec End-->
 
-<!-- Modal -->
+<!-- Modal sec Start -->
 <div class="modal fade" id="chooseColor" tabindex="-1" aria-labelledby="chooseColorLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
@@ -1105,7 +1062,6 @@
     </div>
 </div>
 <!-- Modal sec End-->
-
 
 <script src="{{ url_for('static', filename='vendor/js/bundle.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/jquery.themepunch.tools.min.js') }}"></script>

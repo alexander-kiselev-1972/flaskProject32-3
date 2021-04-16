@@ -638,26 +638,5 @@ jQuery(function ($) {
         return false;
     });
 
-    $(document).on('click', '.btn-choose-color', function () {
-        //get modal id
-        let id_modal = $(this).attr('data-id_modal');
-        let color_check = $(this).closest('ul').find("[name='color']").val();
-
-        $('.color-img').removeClass('selected');
-        $('.color-radio').prop('checked', false);
-
-        //if !empty color we check on modal
-        if(color_check) {
-            $(".color-block :input[value=" + color_check + "]").closest('.color-block').find(".color-img").addClass('selected');
-        }
-        //set id in button
-        $('.confirm-color-button').attr('data-id', id_modal);
-    });
-
 });
-
-
-
-
-
 
