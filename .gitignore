@@ -1,6 +1,6 @@
 /venv/
 /migrations/
-__pycache__*
+__pycache__/config.cpython-38.pyc
 __pycache__/*
 app/__pycache__/*
 app/main/__pycache__/*
