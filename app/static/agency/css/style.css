@@ -2765,6 +2765,14 @@ header .broad-nav .navbar .nav-item:last-child:after {
     border-radius: 10px;
     padding: 20px;
 }
+.contact-sec .contact-form .my-form input.anim-btn {
+    margin-bottom: 0;
+    border-radius: 10px;
+    padding: 10px 30px;
+}
+.contact-sec .contact-form .my-form input.anim-btn:hover {
+    background-color: #f1c30f;
+}
 .contact-sec .contact-form .my-form input[placeholder]{
     color: #444444;
     opacity: .8;

@@ -9,19 +9,20 @@ class NameForm(FlaskForm):
     submit = SubmitField('Submit')
 
 
-class Menu_create(FlaskForm):
+class CreateMenuForm(FlaskForm):
     name = StringField('Name?', validators=[DataRequired()])
     url = StringField("URL", validators=[DataRequired()])
     submit = SubmitField('Submit')
 
 
-class LeaveMessage(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired(), Length(min=2, max=25)])
-    last_name = StringField('Last Name', validators=[DataRequired(), Length(min=2, max=30)])
-    email = StringField('Email', validators=[DataRequired(), Regexp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"), Email()])
+class LeaveMessageForm(FlaskForm):
+    first_name = StringField('First Name', validators=[DataRequired(message='Je povinné'), Length(min=2, max=25)])
+    last_name = StringField('Last Name', validators=[DataRequired(message='Je povinné'), Length(min=2, max=30)])
+    email = StringField('Email', validators=[DataRequired(), Email(),
+                                             Regexp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")])
     subject = StringField('Subject', validators=[DataRequired()])
     message = TextAreaField('Message', validators=[DataRequired()])
-    submit = SubmitField('Submit')
+    submit = SubmitField('Poslať správu')
 
 
 class BuyCaravanForm(FlaskForm):
@@ -37,7 +38,7 @@ class BuyCaravanForm(FlaskForm):
     parking_brake = BooleanField('With parking brake')
     price = HiddenField()
     model_id = HiddenField()
-    submit = SubmitField('Купить')
+    submit = SubmitField('Ďalej')
 
 
 class CheckoutForm(FlaskForm):
@@ -55,9 +56,10 @@ class CheckoutForm(FlaskForm):
     model_id = HiddenField()
     first_name = StringField('Your first name', validators=[DataRequired(), Length(min=2, max=25)])
     last_name = StringField('Your last name', validators=[DataRequired(), Length(min=2, max=30)])
-    email = StringField('Your e-mail', validators=[DataRequired(), Regexp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)"), Email()])
+    email = StringField('Your e-mail', validators=[DataRequired(), Email(),
+                                                   Regexp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")])
     phone = StringField('Your phone')
     billing_address = StringField('Your address', validators=[DataRequired()])
     type_of_document = StringField('Which document', validators=[DataRequired()])
     document = StringField('Number of your document', validators=[DataRequired()])
-    submit = SubmitField('Купить')
+    submit = SubmitField('Objednať')

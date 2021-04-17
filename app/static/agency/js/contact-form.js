@@ -1,18 +1,31 @@
-let form = document.getElementById('contact-form');
-
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    send_form_ajax();
+/* переопределить поведение кнопки "Отправить" */
+$(document).ready(function () {
+    $("#contact-form").submit(function (event) {
+        event.preventDefault();
+        sendAjaxForm("contact-form", "msg");
+    });
 });
 
-function send_form_ajax() {
+/* отправка формы через ajax */
+function sendAjaxForm(form_ajax, msg) {
+    let form = $("#" + form_ajax);
     $.ajax({
-        url: '/',
-        data: $('form').serialize(),
-        type: 'POST',
+        type: form.attr('method'),
+        url: form.attr('action'),
+        data: form.serialize(),
         success: function (response) {
-            // console.log(data);
-            console.log(response);
+            let json = jQuery.parseJSON(response);
+            $("#" + msg).html(json.msg);
+            if (json.success === 'true') {
+                form.trigger('reset');
+                setTimeout(function () {
+                    $("#" + msg).html('');
+                }, 5000);
+            }
+            else {
+                $("#" + msg).html(json.msg);
+                console.log('Some error, check all fields, please');
+            }
         },
         error: function (error) {
             console.log(error);

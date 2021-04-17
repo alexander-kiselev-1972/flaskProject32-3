@@ -30,9 +30,9 @@ class Config:
     MAIL_PORT = int(os.environ.get('MAIL_PORT', '587'))
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in \
         ['true', 'on', '1']
-    MAIL_USERNAME = os.environ.get('MAIL_USERNAME')
-    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
-    FLASKY_MAIL_SUBJECT_PREFIX = '[Flasky]'
+    MAIL_USERNAME = os.environ.get('MAIL_USERNAME') or 'email999test@gmail.com'
+    MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD') or '12111993hy1'
+    FLASKY_MAIL_SUBJECT_PREFIX = '[Message from web]'
     FLASKY_MAIL_SENDER = 'Flasky Admin <deilmann.sro@gmail.com>'
     FLASKY_ADMIN = os.environ.get('FLASKY_ADMIN')
     SQLALCHEMY_TRACK_MODIFICATIONS = False

@@ -1,0 +1,4 @@
+User {{ user }} with email: {{ email }}
+wrote you a message from your website Karavan | DEILMANN s.r.o.
+
+{{ user_message }}
