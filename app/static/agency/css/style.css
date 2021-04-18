@@ -2745,6 +2745,17 @@ header .broad-nav .navbar .nav-item:last-child:after {
     /*border:solid .5px #dddddd;*/
     border-radius: 15px;
 }
+#msg {
+    font-size: 18px;
+}
+#msg.success {
+    margin-top: 15px;
+    color: #006800;
+}
+#msg.error {
+    margin-top: 15px;
+    color: #C40000;
+}
 .contact-sec .contact-box .small-heading{
     font-size: 24px;
     font-family: 'Montserrat', sans-serif;
@@ -2966,14 +2977,19 @@ header .broad-nav .navbar .nav-item:last-child:after {
     -webkit-align-items: center;
     -ms-flex-align: center;
     align-items: center;
-    min-width: 145px;
+    min-width: 160px;
     max-width: 190px;
     height: 37px;
-    -webkit-border-radius: 25px 4px;
-    border-radius: 25px 4px;
+    -webkit-border-radius: 50rem;
+    border-radius: 50rem;
     font-size: 16px;
     border: 1px solid #fff;
     color: #fff;
+    vertical-align: bottom;
+    text-decoration: none;
+}
+.cookie-wrap .container .cookie-close:hover {
+    background-color: #f1c30f;
 }
 .cookie-wrap.hide {
     display: none;

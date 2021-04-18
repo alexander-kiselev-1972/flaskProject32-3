@@ -18,13 +18,15 @@ function sendAjaxForm(form_ajax, msg) {
             $("#" + msg).html(json.msg);
             if (json.success === 'true') {
                 form.trigger('reset');
+                $("#" + msg).removeClass('error').addClass('success');
                 setTimeout(function () {
                     $("#" + msg).html('');
+                    $("#" + msg).removeClass('success')
                 }, 5000);
             }
             else {
                 $("#" + msg).html(json.msg);
-                console.log('Some error, check all fields, please');
+                $("#" + msg).addClass('error');
             }
         },
         error: function (error) {

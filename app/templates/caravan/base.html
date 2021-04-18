@@ -904,8 +904,8 @@
                 <div class="contact-detail wow fadeInLeft">
                     <div class="ex-detail">
                         <h4 class="large-heading">
-                            <span class="heading-1">Kontaktujte</span>
-                            <span class="heading-2">nás</span>
+                            <span class="heading-1">Naše</span>
+                            <span class="heading-2">kontakty</span>
                         </h4>
                         <span class="fly-text">Kontakt</span>
                     </div>
@@ -959,7 +959,7 @@
                 </div>
             </div>
             <div class="col-12">
-                <p class="rites text-center small-text">&copy; 2020 DEILMANN s.r.o.</p>
+                <p class="rites text-center small-text">&copy; 2020 - {{ current_year }} Created by {{ own[0].name }}</p>
             </div>
         </div>
     </div>
@@ -970,10 +970,11 @@
 <div id="cookie-agreement" class="cookie-wrap hide">
     <div class="container">
         <div class="l-section">
-            <p>Этот сайт использует cookie - <a href="{{ url_for('main.cookie') }}" target="_blank">подробнее</a>. Вы можете изменить настройки cookie в своём браузере.</p>
+            <p>Táto webová stránka používa cookie - <a href="{{ url_for('main.cookie') }}" target="_blank">viac info</a>.
+                Zatvorením tohto oznámenia alebo používaním tejto stránky vyjadrujete súhlas s používaním súborov cookies.</p>
         </div>
         <div class="r-section">
-            <button class="btn btn-link btn-center cookie-close">Принять и закрыть</button>
+            <button class="btn btn-link btn-center cookie-close">Súhlasím a zavrieť</button>
         </div>
     </div>
 </div>
@@ -984,7 +985,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="chooseColorLabel">Какой цвет корпуса вы бы хотели?</h5>
+                <h5 class="modal-title" id="chooseColorLabel">Akú farbu modulu si vyberiete?</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -992,74 +993,74 @@
             <div class="modal-body">
                 <div class="row">
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Зелений"  value="green">
+                        <input class="color-radio" type="radio" name="color" data-name="Zelená"  value="green">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/green.png') }}')"></div>
-                        <div class="color-text"><p>Зелений</p></div>
+                        <div class="color-text"><p>Zelená</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Асфальт" value="asphalt">
+                        <input class="color-radio" type="radio" name="color" data-name="Petrolejová" value="asphalt">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/asphalt.png') }}')"></div>
-                        <div class="color-text"><p>Асфальт</p></div>
+                        <div class="color-text"><p>Petrolejová</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Болотний" value="marsh">
+                        <input class="color-radio" type="radio" name="color" data-name="Močiar" value="marsh">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/marsh.png') }}')"></div>
-                        <div class="color-text"><p>Болотний</p></div>
+                        <div class="color-text"><p>Močiar</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Голубий" value="sky-blue">
+                        <input class="color-radio" type="radio" name="color" data-name="Majská modrá" value="sky-blue">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/sky-blue.png') }}')"></div>
-                        <div class="color-text"><p>Голубий</p></div>
+                        <div class="color-text"><p>Majská modrá</p></div>
                     </label>
                 </div>
                 <div class="row">
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Жовтий" value="yellow">
+                        <input class="color-radio" type="radio" name="color" data-name="Žltá" value="yellow">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/yellow.png') }}')"></div>
-                        <div class="color-text"><p>Жовтий</p></div>
+                        <div class="color-text"><p>Žltá</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Червоний" value="red">
+                        <input class="color-radio" type="radio" name="color" data-name="Červená" value="red">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/red.png') }}')"></div>
-                        <div class="color-text"><p>Червоний</p></div>
+                        <div class="color-text"><p>Červená</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Оранжевий" value="orange">
+                        <input class="color-radio" type="radio" name="color" data-name="Oranžová" value="orange">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/orange.png') }}')"></div>
-                        <div class="color-text"><p>Оранжевий</p></div>
+                        <div class="color-text"><p>Oranžová</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Сірий" value="grey">
+                        <input class="color-radio" type="radio" name="color" data-name="Šedá" value="grey">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/grey.png') }}')"></div>
-                        <div class="color-text"><p>Сірий</p></div>
+                        <div class="color-text"><p>Šedá</p></div>
                     </label>
                 </div>
                 <div class="row">
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Синій" value="blue">
+                        <input class="color-radio" type="radio" name="color" data-name="Modrá" value="blue">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/blue.png') }}')"></div>
-                        <div class="color-text"><p>Синій</p></div>
+                        <div class="color-text"><p>Modrá</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Фіолетовий" value="violet">
+                        <input class="color-radio" type="radio" name="color" data-name="Fialová" value="violet">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/violet.png') }}')"></div>
-                        <div class="color-text"><p>Фіолетовий</p></div>
+                        <div class="color-text"><p>Fialová</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Інший колір" value="another-color">
+                        <input class="color-radio" type="radio" name="color" data-name="Iná farba" value="another-color">
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/another-color.png') }}')"></div>
-                        <div class="color-text"><p>Інший колір</p></div>
+                        <div class="color-text"><p>Iná farba</p></div>
                     </label>
                     <label class="color-block">
-                        <input class="color-radio" type="radio" name="color" data-name="Хочу свій принт" value="own-print">
+                        <input class="color-radio" type="radio" name="color" data-name="Chcem svoj výtlačok" value="own-print">
 
                         <div class="color-img" style="background-image: url('{{ url_for('static', filename='agency/images/colors/own-print.png')}}')"></div>
-                        <div class="color-text"><p>Хочу свій принт</p></div>
+                        <div class="color-text"><p>Chcem svoj výtlačok</p></div>
                     </label>
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-warning confirm-color-button" data-id="" data-dismiss="modal">Підтвердити</button>
+                <button type="button" class="btn btn-warning confirm-color-button" data-id="" data-dismiss="modal">Potvrdiť</button>
             </div>
         </div>
     </div>
@@ -1085,7 +1086,7 @@
 <script src="{{ url_for('static', filename='vendor/js/owl.carousel.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/wow.min.js') }}"></script>
 <script src="{{ url_for('static', filename='vendor/js/mediaelement-and-player.min.js') }}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAnZQx8dUfcrwWwKvN88ue-9N3QqIzeqSg"></script>
+<script src="https://maps.googleapis.com/maps/api/js?language=sk&key=AIzaSyAnZQx8dUfcrwWwKvN88ue-9N3QqIzeqSg"></script>
 
 <script src="{{ url_for('static', filename='agency/js/calculator.js') }}"></script>
 <script src="{{ url_for('static', filename='agency/js/contact-form.js') }}"></script>

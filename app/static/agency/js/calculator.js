@@ -86,7 +86,7 @@ for (let i = 0; i < caravans.length; i++) {
 
                                     confirm.addEventListener('click', function () {
                                         inputColor.value = event.target.value;
-                                        buttonColor.innerText = 'Color: ' + color_name;
+                                        buttonColor.innerText = 'Farba: ' + color_name;
                                     });
                                 }
 

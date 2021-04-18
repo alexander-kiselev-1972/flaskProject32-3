@@ -1,7 +1,7 @@
 if ($("#google-map").length) {
     function initialize() {
         var mapOptions = {
-            zoom: 17.01,
+            zoom: 15.01,
             scrollwheel: false,
             styles: [{
                 "featureType": "water",

@@ -5,6 +5,7 @@ from ..models import User, Menu, Owner, Messages, Models, Orders
 from app import db
 from .forms import NameForm, CreateMenuForm, LeaveMessageForm, BuyCaravanForm, CheckoutForm
 from sqlalchemy.exc import IntegrityError
+from datetime import datetime
 import json
 import time
 
@@ -83,13 +84,15 @@ def index():
                        user=contact_form.first_name.data, email=email_form, user_message=message)
 
             flash('Your message has been sent!', 'success')
-            return json.dumps({'success': 'true', 'msg': 'Your message has been sent!'})
+            return json.dumps({'success': 'true', 'msg': 'Vaša správa bola odoslaná!'})
         else:
             flash('Some error, check all fields, please!', 'warning')
-            return json.dumps({'success': 'false', 'msg': 'Some error, check all fields, please!'})
+            return json.dumps({'success': 'false', 'msg': 'Nejaká chyba, prosím skontrolujte všetky polia!'})
 
     elif request.method == 'GET':
-        return render_template('caravan/index.html', form=contact_form, own=own, models=models, form_caravan=form_buy_caravan)
+        current_year = datetime.now().year
+        return render_template('caravan/index.html', form=contact_form, own=own, models=models,
+                               form_caravan=form_buy_caravan, current_year=current_year)
 
 
 @main.route("/checkout/<int:model_id>", methods=['GET', 'POST'])
