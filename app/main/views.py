@@ -49,6 +49,7 @@ def index():
             if form_buy_caravan.caravan_cover.data: options += '&caravan_cover'
             if form_buy_caravan.support_legs.data: options += '&support_legs'
             if form_buy_caravan.roof_rack.data: options += '&roof_rack'
+            if form_buy_caravan.tv.data: options += '&tv'
             if form_buy_caravan.chassis.data == 'no-chassis':
                 options += '&no-chassis'
             else:

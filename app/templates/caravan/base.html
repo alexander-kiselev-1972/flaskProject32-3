@@ -859,23 +859,24 @@
                         <form class="caravan-price" action="" method="post">
                             {{ form_caravan.csrf_token() }}
                             <ul class="feature-list">
-                                <li><label class="custom-checkbox">{{ form_caravan.heater(data_price='100') }}<span>Heater<img src="{{ url_for('static', filename='agency/images/heater.png') }}" alt="Heater"></span></label></li>
-                                <li><label class="custom-checkbox">{{ form_caravan.hatch_fan(data_price='200') }}<span>Roof hatch fan<img src="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" alt="Roof hatch fan"></span></label></li>
-                                <li><label class="custom-checkbox">{{ form_caravan.caravan_cover(data_price='300') }}<span>Caravan cover<img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="Caravan cover"></span></label></li>
-                                <li><label class="custom-checkbox">{{ form_caravan.support_legs(data_price='300') }}<span>Trailer support legs<img src="{{ url_for('static', filename='agency/images/support-legs.png') }}" alt="Trailer support legs"></span></label></li>
-                                <li><label class="custom-checkbox">{{ form_caravan.roof_rack(data_price='200') }}<span>Roof rack cross bars<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.heater(data_price='100') }}<span>Autonómny naftový ohrievač<img src="{{ url_for('static', filename='agency/images/heater.png') }}" alt="Heater"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.hatch_fan(data_price='200') }}<span>Poklop s ventilátorom<img src="{{ url_for('static', filename='agency/images/hatch-fan.png') }}" alt="Roof hatch fan"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.caravan_cover(data_price='300') }}<span>Kryt karavanu (stan)<img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="Caravan cover"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.support_legs(data_price='300') }}<span>Sada parkovacej podpery<img src="{{ url_for('static', filename='agency/images/support-legs.png') }}" alt="Trailer support legs"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.roof_rack(data_price='200') }}<span>Strešný nosič (priečne tyče)<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
+                                <li><label class="custom-checkbox">{{ form_caravan.tv(data_price='150') }}<span>TV<img src="{{ url_for('static', filename='agency/images/TV.png')}}" alt="TV"></span></label></li>
 
                                 {{ form_caravan.color(value='') }}
-                                <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="{{ x.models_id - 1 }}">Choose a color</button></li>
+                                <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="{{ x.models_id - 1 }}">Vyberte farbu</button></li>
 
                                 {% for radio_chassis in form_caravan.chassis %}
                                     {% if radio_chassis.id == 'chassis-0' %}
-                                        <li><label class="custom-radio">{{ radio_chassis() }}<span>Without chassis<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
+                                        <li><label class="custom-radio">{{ radio_chassis() }}<span>Bez podvozka<img src="{{ url_for('static', filename='agency/images/no-chassis.png') }}" alt="Without chassis"></span></label></li>
                                     {% else %}
-                                        <li><label class="custom-radio">{{ radio_chassis(data_price='600', checked=true) }}<span>With chassis<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
+                                        <li><label class="custom-radio">{{ radio_chassis(data_price='600', checked=true) }}<span>S podvozkom<img src="{{ url_for('static', filename='agency/images/with-chassis.png') }}" alt="With chassis"></span></label>
                                             <ul class="feature-list brake">
-                                                <li><label class="custom-checkbox">{{ form_caravan.parking_brake(data_price='520') }}<span>With parking brake<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
-                                                <li><label class="custom-checkbox">{{ form_caravan.spare_tire(data_price='100') }}<span>Spare tire<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
+                                                <li><label class="custom-checkbox">{{ form_caravan.parking_brake(data_price='520') }}<span>S brzdovým systemom<img src="{{ url_for('static', filename='agency/images/parking-brake-2.jpg')}}" alt="Parking brake"></span></label></li>
+                                                <li><label class="custom-checkbox">{{ form_caravan.spare_tire(data_price='100') }}<span>Rezervné koleso<img src="{{ url_for('static', filename='agency/images/spare-tire.png') }}" alt="Spare tire"></span></label></li>
                                             </ul>
                                         </li>
                                     {% endif %}

@@ -1,4 +1,4 @@
-from flask_wtf import FlaskForm
+from flask_wtf import FlaskForm, RecaptchaField
 from wtforms import StringField, SubmitField, TextAreaField, RadioField, BooleanField, HiddenField
 from wtforms.validators import DataRequired, Email, Length, Regexp, ValidationError
 from ..models import User
@@ -16,12 +16,13 @@ class CreateMenuForm(FlaskForm):
 
 
 class LeaveMessageForm(FlaskForm):
-    first_name = StringField('First Name', validators=[DataRequired(message='Je povinné'), Length(min=2, max=25)])
-    last_name = StringField('Last Name', validators=[DataRequired(message='Je povinné'), Length(min=2, max=30)])
+    first_name = StringField('First Name', validators=[DataRequired(), Length(min=2, max=25)])
+    last_name = StringField('Last Name')
     email = StringField('Email', validators=[DataRequired(), Email(),
                                              Regexp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")])
     subject = StringField('Subject', validators=[DataRequired()])
     message = TextAreaField('Message', validators=[DataRequired()])
+    # recaptcha = RecaptchaField()
     submit = SubmitField('Poslať správu')
 
 
@@ -31,11 +32,12 @@ class BuyCaravanForm(FlaskForm):
     hatch_fan = BooleanField('Roof hatch fan')
     caravan_cover = BooleanField('Caravan cover')
     support_legs = BooleanField('Trailer support legs')
-    roof_rack = BooleanField('Roof rack cross bars<')
-    spare_tire = BooleanField('Spare tire')
+    roof_rack = BooleanField('Roof rack cross bars')
+    tv = BooleanField('TV')
     color = HiddenField('Color')
     chassis = RadioField('Chassis', choices=[('no-chassis', 'Without chassis'), ('with-chassis', 'With chassis')])
     parking_brake = BooleanField('With parking brake')
+    spare_tire = BooleanField('Spare tire')
     price = HiddenField()
     model_id = HiddenField()
     submit = SubmitField('Ďalej')
@@ -47,14 +49,15 @@ class CheckoutForm(FlaskForm):
     hatch_fan = BooleanField('Roof hatch fan')
     caravan_cover = BooleanField('Caravan cover')
     support_legs = BooleanField('Trailer support legs')
-    roof_rack = BooleanField('Roof rack cross bars<')
+    roof_rack = BooleanField('Roof rack cross bars')
+    tv = BooleanField('TV')
     color = HiddenField('Color')
     chassis = RadioField('Chassis', choices=[('no-chassis', 'Without chassis'), ('with-chassis', 'With chassis')])
     parking_brake = BooleanField('With parking brake')
     spare_tire = BooleanField('Spare tire')
     price = HiddenField()
     model_id = HiddenField()
-    first_name = StringField('Your first name', validators=[DataRequired(), Length(min=2, max=25)])
+    first_name = StringField('Your first name', validators=[DataRequired(message='Je povinné'), Length(min=2, max=25, message='Check length')])
     last_name = StringField('Your last name', validators=[DataRequired(), Length(min=2, max=30)])
     email = StringField('Your e-mail', validators=[DataRequired(), Email(),
                                                    Regexp(r"(^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$)")])

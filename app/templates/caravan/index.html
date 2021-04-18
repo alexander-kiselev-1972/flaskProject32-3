@@ -3,17 +3,11 @@
 
 {% block forma %}
 
-    {% for message in get_flashed_messages() %}
-        <div class="alert alert-warning">
-            <button type="button" class="close" data-dismiss="alert"></button>{{ message }}
-        </div>
-    {% endfor %}
-
     <form class="contact-form" id="contact-form" method="post" action="">
         {{ form.csrf_token() }}
         <div class="row my-form">
-            <div class="display-error"><span id="error"></span></div>
             <div class="col-12 col-md-6">
+                <p class="help-block text-danger"></p>
                 {{ form.first_name(class="form-control", placeholder="Vaše meno *", required="required") }}
             </div>
             <div class="col-12 col-md-6">
@@ -28,6 +22,7 @@
             <div class="col-12">
                 {{ form.message(class="form-control", placeholder="Vaša správa *", rows="6", required="required") }}
             </div>
+{#            {{ form.recaptcha }}#}
             <div class="col-12">
 {#                <button class="btn anim-btn rounded-pill user-contact" type="submit">#}
                     {{ form.submit(class="btn anim-btn rounded-pill user-contact") }}

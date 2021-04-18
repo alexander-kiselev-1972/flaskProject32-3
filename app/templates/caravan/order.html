@@ -41,7 +41,7 @@
     </div>
     <div class="col-12 col-md-6 price-text">
         <div class="price-img">
-{#            <img src="{{ url_for('static', filename='agency/images/p4.jpg') }}" alt="">#}
+            <img src="{{ url_for('static', filename='agency/images/' ~ model.models_description) }}" alt="">
         </div>
     </div>
 </div>
@@ -59,6 +59,7 @@
         <li><label class="custom-checkbox">{{ form.caravan_cover(data_price='300') }}<span>Caravan cover<img src="{{ url_for('static', filename='agency/images/caravan-cover.png') }}" alt="Caravan cover"></span></label></li>
         <li><label class="custom-checkbox">{{ form.support_legs(data_price='300') }}<span>Trailer support legs<img src="{{ url_for('static', filename='agency/images/support-legs.png') }}" alt="Trailer support legs"></span></label></li>
         <li><label class="custom-checkbox">{{ form.roof_rack(data_price='200') }}<span>Roof rack cross bars<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
+        <li><label class="custom-checkbox">{{ form.tv(data_price='150') }}<span>TV<img src="{{ url_for('static', filename='agency/images/TV.png')}}" alt="TV"></span></label></li>
         {{ form.color(value='') }}
         <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="0">Choose a color</button></li>
 
@@ -79,7 +80,17 @@
         {{ form.model_id(id=model.models_id, value=model.models_id) }}
     </ul>
     <ul class="feature-list">
-        <li>{{ form.first_name() }}</li>
+        {% if form.first_name.errors %}
+            {{ form.first_name(class="form-control is-invalid") }}
+            <div class="invalid-feedback">
+                {% for error in form.first_name.errors %}
+                    <span>{{ error }}</span>
+                {% endfor %}
+            </div>
+        {% else %}
+            {{ form.first_name(class="form-control") }}
+        {% endif %}
+{#        <li>{{ form.first_name() }}</li>#}
         <li>{{ form.last_name() }}</li>
         <li>{{ form.email() }}</li>
         <li>{{ form.phone() }}</li>

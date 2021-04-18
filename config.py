@@ -26,6 +26,8 @@ def config_postgres(filename='database.ini', section='postgresql'):
 
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'hard to guess string'
+    RECAPTCHA_PUBLIC_KEY = "6LfnZK8aAAAAADBTxzrekzqu86SQO61EvzcojynG"
+    RECAPTCHA_PRIVATE_KEY = "6LfnZK8aAAAAAIkiRCx3oPCrQ40kkhkoucw8tZt6"
     MAIL_SERVER = os.environ.get('MAIL_SERVER', 'smtp.googlemail.com')
     MAIL_PORT = int(os.environ.get('MAIL_PORT', '587'))
     MAIL_USE_TLS = os.environ.get('MAIL_USE_TLS', 'true').lower() in \
