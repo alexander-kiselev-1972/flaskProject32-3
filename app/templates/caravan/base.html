@@ -58,6 +58,7 @@
 </div>
 <!--bottom Arrow end-->
 
+{% block header %}
 <!--header sec start-->
 <header id="home">
     <div class="upper-nav">
@@ -152,7 +153,8 @@
         </div>
 </header>
 <!--header sec end-->
-
+{% endblock %}
+{% block slider %}
 <!--slider sec start-->
 <div id="slider-section" class="slider-section">
 
@@ -458,6 +460,9 @@
 
 </div>
 <!--slider sec end-->
+{% endblock %}
+
+{% block about_sec_start %}
 
 <!--About sec start-->
 <section id="about-sec" class="about-sec section-padding">
@@ -517,6 +522,10 @@
 </section>
 <!--ABout sec end-->
 
+{% endblock %}
+
+
+{% block portfolio %}
 <!--portfolio section start-->
 <section class="portfolio-sec company-portfolio-section section-padding" id="company-portfolio-section">
     <div class="container">
@@ -701,7 +710,9 @@
     </div>
 </section>
 <!--portfolio section end-->
+{% endblock %}
 
+{% block configuration %}
 <!--Configuration sec start-->
 <section id="configuration" class="our-services section-padding">
     <div class="container">
@@ -808,7 +819,9 @@
     </div>
 </section>
 <!--Configuration sec end-->
+{% endblock %}
 
+{% block quote_sec_start %}
 <!--Quote sec start-->
 <section id="quote-sec" class="quote-sec">
     <div class="quote-overlay"></div>
@@ -828,7 +841,9 @@
     </div>
 </section>
 <!--Quote sec end-->
+{% endblock %}
 
+{% block pricing_section_start %}
 <!--Pricing section start-->
 <section id="pricing-sec" class="pricing-sec">
     <div class="container">
@@ -895,6 +910,10 @@
     </div>
 </section>
 <!--Pricing section end-->
+
+{% endblock %}
+
+{% block kontakt %}
 
 <!--Contact us sec start-->
 <section class="contact-sec" id="contact-sec">
@@ -964,6 +983,10 @@
 </section>
 <!--Contact Us sec end-->
 
+{% endblock %}
+
+{% block map %}
+
 <!-- Map sec start-->
 <div id="map-sec" class="map-sec">
     <div class="row no-gutters">
@@ -971,6 +994,8 @@
     </div>
 </div>
 <!-- Map sec ends -->
+
+{% endblock %}
 
 <!-- Footer sec start-->
 <div class="footer-sec" id="footer-sec">
