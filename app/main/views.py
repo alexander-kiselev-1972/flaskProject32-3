@@ -159,6 +159,7 @@ def index():
 
 @main.route("/checkout/<int:model_id>", methods=['GET', 'POST'])
 def checkout(model_id):
+    own = Owner.query.all()
     model = Models.query.get_or_404(model_id)
     form_checkout = CheckoutForm()
     str_request = request.args.get('options')
@@ -174,7 +175,7 @@ def checkout(model_id):
     #     if request.args.get('options'):
     #         str_request = request.args.get('options')
 
-    return render_template('caravan/order.html', model=model, form=form_checkout, data_request=str_request, price=price, title='Checkout')
+    return render_template('caravan/order.html', own=own, model=model, form=form_checkout, data_request=str_request, price=price, title='Checkout')
 
 
 @main.route('/cookie')
