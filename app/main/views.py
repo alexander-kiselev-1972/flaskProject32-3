@@ -1,5 +1,6 @@
 from flask import render_template, redirect, url_for, flash, request, session
 from . import main
+from .. import order
 from ..email import send_email, send_email2
 from ..models import User, Menu, Owner, Messages, Models, Orders
 from app import db
@@ -152,30 +153,11 @@ def index():
         if form_buy_caravan.color.data: options += '&color=' + form_buy_caravan.color.data
         session['price'] = form_buy_caravan.price.data
 
-        return redirect(url_for('main.checkout', model_id=model_id, options=options))
+        return redirect(url_for('order.checkout', model_id=model_id, options=options))
 
     return render_template('caravan/index.html', form=form, own=own, models=models, form_caravan=form_buy_caravan)
 
 
-@main.route("/checkout/<int:model_id>", methods=['GET', 'POST'])
-def checkout(model_id):
-    own = Owner.query.all()
-    model = Models.query.get_or_404(model_id)
-    form_checkout = CheckoutForm()
-    str_request = request.args.get('options')
-    price = session.get('price')
-
-    if form_checkout.validate_on_submit():
-        # create order
-        order = Orders()
-        flash('Заказ отправлен', 'success')
-        return redirect(url_for('main.index'))
-
-    # if request.method == 'GET':
-    #     if request.args.get('options'):
-    #         str_request = request.args.get('options')
-
-    return render_template('caravan/order.html', own=own, model=model, form=form_checkout, data_request=str_request, price=price, title='Checkout')
 
 
 @main.route('/cookie')

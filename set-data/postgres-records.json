@@ -1,4 +1,24 @@
-{
+{ "mattress": [
+  {
+    "id": "1",
+    "name": "foam proof",
+    "description": "dsdsdsds",
+    "price": "100"
+  },
+  {
+    "id": "2",
+    "name": "penka",
+    "description": "dsdsdsds --- ",
+    "price": "150"
+  },
+  {
+    "id": "3",
+    "name": "pruzinka",
+    "description": "dsdsdsds- aaa",
+    "price": "260"
+  }
+],
+
   "own": {
     "id": "1",
     "name": "DEILMANN s.r.o.",
@@ -15,24 +35,24 @@
   },
   "models": [
     {
-      "models_id": "1",
-      "models_name": "ZÁKLADNÁ",
-      "models_description": "sada_zakladna.jpg",
-      "models_price": "7050",
+      "id": "1",
+      "name": "ZÁKLADNÁ",
+      "description": "sada_zakladna.jpg",
+      "price": "7050",
       "css_class": "pricing-card wow fadeInLeft"
     },
     {
-      "models_id": "2",
-      "models_name": "LUX",
-      "models_description": "sada_lux.png",
-      "models_price": "8950",
+      "id": "2",
+      "name": "LUX",
+      "description": "sada_lux.png",
+      "price": "8950",
       "css_class": "pricing-card active wow fadeInUp"
     },
     {
-      "models_id": "3",
-      "models_name": "KOMFORT",
-      "models_description": "sada_komfort.png",
-      "models_price": "8050",
+      "id": "3",
+      "name": "KOMFORT",
+      "description": "sada_komfort.png",
+      "price": "8050",
       "css_class": "pricing-card wow fadeInRight"
     }
   ]

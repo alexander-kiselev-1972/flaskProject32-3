@@ -121,7 +121,7 @@ class FotoAlbum(db.Model):
     boxes = db.relationship('BoxesCollections', backref='album')
     runduk = db.relationship('Runduk', backref='album')
     fittings = db.relationship('Fittings', backref='album')
-    matrac = db.relationship('Matrac', backref='album')
+    # mattress = db.relationship('mattress', backref='album')
     sinck = db.relationship('Sinck', backref='album')
     pump = db.relationship('Pump', backref='album')
     tank = db.relationship('Tank', backref='album')
@@ -287,19 +287,16 @@ class Fittings(db.Model):
 
 
 # матрас
-class Matrac(db.Model):
-    __tablename__ = 'matrac'
-    matrac_id = db.Column(db.Integer, primary_key=True)
-    matrac_name = db.Column(db.String(80))
-    matrac_description = db.Column(db.Text)
-    album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
-
-
-    def show_me(self):
-        return self.matrac_name, self.matrac_description
+class Mattress(db.Model):
+    __tablename__ = 'mattress'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80))
+    description = db.Column(db.Text)
+    price = db.Column(db.Integer)
+    # album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
 
     def __repr__(self):
-        return self.matrac_name
+        return self.name
 
 
 # раковина
@@ -467,10 +464,10 @@ class MosquitoNet(db.Model):
 
 class Heater(db.Model):
     __tablename__ = 'heater'
-    heater_id = db.Column(db.Integer, primary_key=True)
-    heater_name = db.Column(db.String(80))
-    heater_description = db.Column(db.Text)
-    heater_price = db.Column(db.Float)
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80))
+    description = db.Column(db.Text)
+    price = db.Column(db.Float)
 
 
 
@@ -483,11 +480,12 @@ class Heater(db.Model):
 # модели
 class Models(db.Model):
     __tablename__ = 'models'
-    models_id = db.Column(db.Integer, primary_key=True)
-    models_name = db.Column(db.String(80), unique=True)
-    models_description = db.Column(db.Text)
-    models_price = db.Column(db.Integer)
-    model_settings = db.relationship('ModelSettings', backref='model settings')
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), unique=True)
+    description = db.Column(db.Text)
+    price = db.Column(db.Integer)
+
+    settings = db.relationship('ModelSettings', backref='model settings')
 
     album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
     css_class = db.Column(db.String(256))
@@ -500,9 +498,9 @@ class ModelSettings(db.Model):
     __tablename__ = 'model_settings'
     model_settings_id = db.Column(db.Integer, primary_key=True)
 
-    model_id = db.Column(db.Integer, db.ForeignKey('models.models_id'))
+    model_id = db.Column(db.Integer, db.ForeignKey('models.id'))
 
-    heater_id = db.Column(db.Integer, db.ForeignKey('heater.heater_id'))
+    heater_id = db.Column(db.Integer, db.ForeignKey('heater.id'))
     heater = db.relationship('Heater', backref='heater')
 
     mosquito_net_id = db.Column(db.Integer, db.ForeignKey('mosquito_net.mosquito_net_id'))
@@ -534,8 +532,8 @@ class ModelSettings(db.Model):
     sinck_id = db.Column(db.Integer, db.ForeignKey('sinck.sinck_id'))
     sinck = db.relationship('Sinck', backref='sincks')
 
-    matrac_id = db.Column(db.Integer, db.ForeignKey('matrac.matrac_id'))
-    matrac = db.relationship('Matrac', backref='matracs')
+    # mattress_id = db.Column(db.Integer, db.ForeignKey('mattress.id'))
+    # mattress = db.relationship('Mattress', backref='mattresss')
 
     fittings_id = db.Column(db.Integer, db.ForeignKey('fittings.fittings_id'))
     fittings = db.relationship('Fittings', backref='fitting')
@@ -577,7 +575,7 @@ class Orders(db.Model):
     user = db.relationship('User', backref='user')
 
     def __repr__(self):
-        return self.model_id
+        return self.id
 
 
 dict_models = {'foto_album':FotoAlbum,
@@ -595,7 +593,7 @@ dict_models = {'foto_album':FotoAlbum,
                'boxes':Boxes,
                'runduk':Runduk,
                'fittings':Fittings,
-               'matrac':Matrac,
+               #'mattress':Mattress,
                'sinc':Sinck,
                'pump':Pump,
                'tank':Tank,
