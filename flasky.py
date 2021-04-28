@@ -2,18 +2,19 @@ import os
 import click
 from flask_migrate import Migrate
 from app import create_app, db, admin
-from app.models import User, Role, Permission, Owner
+from app.models import User, Role, Permission, Owner, dict_models
 from flask_admin.contrib.sqla import ModelView
+from flask import current_app
 
 app = create_app(os.getenv('FLASK_CONFIG') or 'default')
 migrate = Migrate(app, db)
 
 
-'''
-for key in dict_models:
 
-    admin.add_view(ModelView(dict_models[key], db.session))
-'''
+for key in dict_models:
+    if current_app:
+        admin.add_view(ModelView(dict_models[key], db.session))
+
 
 
 @app.shell_context_processor
