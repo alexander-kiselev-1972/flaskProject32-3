@@ -477,6 +477,75 @@ class Heater(db.Model):
         return self.heater_name
 
 
+
+class ModelConfig(db.Model):
+    __tablename__ = 'model_config'
+    id = db.Column(db.Integer, primary_key=True)
+
+    heater_id = db.Column(db.Integer, db.ForeignKey('heater.id'))
+
+
+    mosquito_net_id = db.Column(db.Integer, db.ForeignKey('mosquito_net.mosquito_net_id'))
+
+
+    stove_id = db.Column(db.Integer, db.ForeignKey('stove.stove_id'))
+
+
+    roof_rack_id = db.Column(db.Integer, db.ForeignKey('roof_rack.roof_rack_id'))
+
+
+    akb_id = db.Column(db.Integer, db.ForeignKey('akb.akb_id'))
+
+
+    solar_panel_id = db.Column(db.Integer, db.ForeignKey('solar_panel.solar_panel_id'))
+
+
+    socket_collection_id = db.Column(db.Integer, db.ForeignKey('socket_collection.socket_coll_id'))
+
+
+    light_collection_id = db.Column(db.Integer, db.ForeignKey('light_collection.light_coll_id'))
+
+
+    tank_id = db.Column(db.Integer, db.ForeignKey('tank.tank_id'))
+
+    pump_id = db.Column(db.Integer, db.ForeignKey('pump.pump_id'))
+
+
+    sinck_id = db.Column(db.Integer, db.ForeignKey('sinck.sinck_id'))
+
+
+    mattress_id = db.Column(db.Integer, db.ForeignKey('mattress.id'))
+
+
+    fittings_id = db.Column(db.Integer, db.ForeignKey('fittings.fittings_id'))
+
+
+    runduk_id = db.Column(db.Integer, db.ForeignKey('runduk.runduk_id'))
+
+
+    boxes_collections_id = db.Column(db.Integer, db.ForeignKey('boxes_collections.boxes_collections_id'))
+
+
+    ventilation_id = db.Column(db.Integer, db.ForeignKey('ventilation.ventilation_id'))
+
+
+    windows_id = db.Column(db.Integer, db.ForeignKey('windows.windows_id'))
+
+
+    seal_id = db.Column(db.Integer, db.ForeignKey('seal.seal_id'))
+
+
+    dors_id = db.Column(db.Integer, db.ForeignKey('dors.dors_id'))
+
+
+    warming_id = db.Column(db.Integer, db.ForeignKey('warming.warming_id'))
+
+
+    def __repr__(self):
+        return self.model_settings_id
+
+
+
 # модели
 class Models(db.Model):
     __tablename__ = 'models'

@@ -2,22 +2,16 @@
 
 
    {{ own[0] }}<br>
-{#    <div>{% for x in  own %}#}
-{#    #}
-
-{#          <i class="las la-mobile-alt"></i><a href="tel:{{ x.phone1 }}">{{ x.phone1 }}</a>#}
-{#          <i class="las la-envelope"></i><a href="mailto:{{ x.email1 }}">{{ x.email1 }}</a>#}
-{#          <i class="las la-map-marker"></i><a href="https://goo.gl/maps/xb8JJ222PDdaWmhP7">{{ x.ulica_dom}}<br>965 01 Žiar nad Hronom</a>#}
-
-{#       <li>{{ i.name }}</li>#}
-{#       <li>{{ i.email1 }}</li>#}
-{#       <li>{{ i.phone1 }}</li>#}
 
 
-{#    {% endfor %}</div>#}
+
 {% endmacro %}
 
 {% macro rad(own) %}
     {{ own[0].name }}
+{% endmacro %}
+
+
+{% macro order() %}
 {% endmacro %}
 
