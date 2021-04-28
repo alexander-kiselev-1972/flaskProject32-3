@@ -859,15 +859,15 @@
             {% for x in models %}
                 <div class="col-12 col-lg-4 p-card">
                     <div class="{{ x.css_class }}">
-                        <h4 class="pricing-heading text-center text-md-left">{{ x.models_name }}</h4>
+                        <h4 class="pricing-heading text-center text-md-left">{{ x.name }}</h4>
                         <div class="row no-gutters price-info text-center text-md-left">
                         <div class="col-12 col-md-6 price-tag">
                          <span class="p-icon"><i class="las la-euro-sign"></i></span>
-                         <span class="p-price">{{ x.models_price }}</span>
+                         <span class="p-price">{{ x.price }}</span>
                         </div>
                         <div class="col-12 col-md-6 price-text">
                             <div class="price-img">
-                                <img src="{{ url_for('static', filename='agency/images/' ~ x.models_description) }}" alt="">
+                                <img src="{{ url_for('static', filename='agency/images/' ~ x.description) }}" alt="">
                             </div>
                         </div>
                     </div>
@@ -881,7 +881,7 @@
                                 <li><label class="custom-checkbox">{{ form_caravan.roof_rack(data_price='200') }}<span>Roof rack cross bars<img src="{{ url_for('static', filename='agency/images/roof-rack.png')}}" alt="Roof rack cross bars"></span></label></li>
 
                                 {{ form_caravan.color(value='') }}
-                                <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="{{ x.models_id - 1 }}">Choose a color</button></li>
+                                <li><button type="button" class="btn btn-warning btn-sm btn-color btn-choose-color" data-toggle="modal" data-target="#chooseColor" data-id_modal="{{ x.id - 1 }}">Choose a color</button></li>
 
                                 {% for radio_chassis in form_caravan.chassis %}
                                     {% if radio_chassis.id == 'chassis-0' %}
@@ -897,7 +897,7 @@
                                 {% endfor %}
 
                                 {{ form_caravan.price(value='') }}
-                                {{ form_caravan.model_id(id='model_id-' ~ x.models_id, value=x.models_id) }}
+                                {{ form_caravan.model_id(id='model_id-' ~ x.id, value=x.id) }}
                             </ul>
 
                             {{ form_caravan.submit(class='btn yellow-anim-btn rounded-pill w-100') }}
