@@ -4,7 +4,9 @@ from flask import current_app
 from flask_login import UserMixin, AnonymousUserMixin
 from . import db, login_manager
 
-
+@login_manager.user_loader
+def load_user(user_id):
+    return User.query.get(int(user_id))
 
 class Owner(db.Model):
     __tablename__='own'
@@ -35,31 +37,47 @@ class Owner(db.Model):
         return self.name, self.email1, self.phone1, self.ulica_dom, self.index, self.icho
 
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(128))
     last_name = db.Column(db.String(128))
-    email = db.Column(db.String(128), unique=True)
+    email = db.Column(db.String(128), unique=True, index=True)
     mess = db.relationship('Messages', backref='messages')
+    password_hash = db.Column(db.String(128))
+    role_id = db.Column(db.Integer, db.ForeignKey('role.id'))
 
 
 
-    def user_insert(self, name):
-        user = User(name=name)
-        db.session.add(user)
-        db.session.commit()
+    # def user_insert(self, name):
+    #     user = User(name=name)
+    #     db.session.add(user)
+    #     db.session.commit()
+    #
+    # def validate_email(self, field):
+    #     if User.query.filter_by(email=field.data.lower()).first():
+    #         return True
 
-    def validate_email(self, field):
-        if User.query.filter_by(email=field.data.lower()).first():
-            return True
+    # def getUserId(self, mail):
+    #     id_user = User.query.filter_by(email=mail).first().id
+    #     return id_user
 
-    def getUserId(self, mail):
-        id_user = User.query.filter_by(email=mail).first().id
-        return id_user
+    @property
+    def password(self):
+        raise AttributeError('password is not a readable attribute')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
 
     def __repr__(self):
         return self.first_name
+
+
 
 
 class Messages(db.Model):
@@ -77,6 +95,7 @@ class Role(db.Model):
     __tablename__ = 'role'
     id = db.Column(db.Integer, primary_key=True)
     role = db.Column(db.String(128), unique=True)
+
 
     def __repr__(self):
         return self.role
@@ -121,7 +140,7 @@ class FotoAlbum(db.Model):
     boxes = db.relationship('BoxesCollections', backref='album')
     runduk = db.relationship('Runduk', backref='album')
     fittings = db.relationship('Fittings', backref='album')
-    # mattress = db.relationship('mattress', backref='album')
+    #mattress = db.relationship('Mattress', backref='album')
     sinck = db.relationship('Sinck', backref='album')
     pump = db.relationship('Pump', backref='album')
     tank = db.relationship('Tank', backref='album')
@@ -288,15 +307,26 @@ class Fittings(db.Model):
 
 # матрас
 class Mattress(db.Model):
-    __tablename__ = 'mattress'
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(80))
-    description = db.Column(db.Text)
-    price = db.Column(db.Integer)
-    # album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
+     __tablename__ = 'mattress'
+     id = db.Column(db.Integer, primary_key=True)
+     name = db.Column(db.String(80))
+     description = db.Column(db.Text)
+     price = db.Column(db.Integer)
+#     #model_config = db.relationship('ModelConfig', backref='model')
+#     #album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
 
-    def __repr__(self):
-        return self.name
+     # def get_data(self):
+     #     list_table = []
+     #
+     #     for i in self.Mattress.query.all():
+     #         tuple_data = (i.id, i.name)
+     #         list_table.append(tuple_data)
+     #     return list_table
+
+
+
+     def __repr__(self):
+         return self.id, self.name
 
 
 # раковина
@@ -514,7 +544,8 @@ class ModelConfig(db.Model):
     sinck_id = db.Column(db.Integer, db.ForeignKey('sinck.sinck_id'))
 
 
-    mattress_id = db.Column(db.Integer, db.ForeignKey('mattress.id'))
+   # mattress_id = db.Column(db.Integer, db.ForeignKey('mattress.id'))
+    #mattress = db.relationship('Mattress', backref='mat' )
 
 
     fittings_id = db.Column(db.Integer, db.ForeignKey('fittings.fittings_id'))
@@ -601,8 +632,8 @@ class ModelSettings(db.Model):
     sinck_id = db.Column(db.Integer, db.ForeignKey('sinck.sinck_id'))
     sinck = db.relationship('Sinck', backref='sincks')
 
-    # mattress_id = db.Column(db.Integer, db.ForeignKey('mattress.id'))
-    # mattress = db.relationship('Mattress', backref='mattresss')
+    #mattress_id = db.Column(db.Integer, db.ForeignKey('mattress.id'))
+    # mattress = db.relationship('Mattress', backref='mod')
 
     fittings_id = db.Column(db.Integer, db.ForeignKey('fittings.fittings_id'))
     fittings = db.relationship('Fittings', backref='fitting')
@@ -650,6 +681,7 @@ class Orders(db.Model):
 dict_models = {'foto_album':FotoAlbum,
                'foto':Foto,
                'user':User,
+               'model config':ModelConfig,
                'role':Role,
                'color':Color,
                'coating':Coating,
