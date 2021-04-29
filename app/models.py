@@ -314,9 +314,19 @@ class Mattress(db.Model):
      price = db.Column(db.Integer)
 #     #model_config = db.relationship('ModelConfig', backref='model')
 #     #album_id = db.Column(db.Integer, db.ForeignKey('foto_album.foto_album_id'))
-#
+
+     # def get_data(self):
+     #     list_table = []
+     #
+     #     for i in self.Mattress.query.all():
+     #         tuple_data = (i.id, i.name)
+     #         list_table.append(tuple_data)
+     #     return list_table
+
+
+
      def __repr__(self):
-         return self.name
+         return self.id, self.name
 
 
 # раковина
